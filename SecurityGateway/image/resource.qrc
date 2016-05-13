@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>stop.ico</file>
+        <file>advance.png</file>
+        <file>back.png</file>
+        <file>background_1.jpg</file>
+        <file>background_2.bmp</file>
+        <file>config.png</file>
+        <file>connectted.png</file>
+        <file>connectting.png</file>
+        <file>disconnection.png</file>
+        <file>login.png</file>
+        <file>menubar.png</file>
+        <file>Project.ico</file>
+        <file>bktest1.jpg</file>
+        <file>bktest2.jpg</file>
+        <file>test1.jpg</file>
+        <file>test2.jpg</file>
+        <file>testt3.jpg</file>
+    </qresource>
+</RCC>
