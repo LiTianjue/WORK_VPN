@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>504</width>
-    <height>371</height>
+    <width>502</width>
+    <height>368</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,8 +35,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>511</width>
-        <height>381</height>
+        <width>501</width>
+        <height>371</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -318,7 +318,11 @@
             </widget>
            </item>
            <item row="0" column="1" colspan="2">
-            <widget class="QLineEdit" name="lineEdit_server_ip"/>
+            <widget class="QLineEdit" name="lineEdit_server_ip">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+            </widget>
            </item>
            <item row="1" column="0">
             <widget class="QLabel" name="label_5">
@@ -328,7 +332,11 @@
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QLineEdit" name="lineEdit_server_port"/>
+            <widget class="QLineEdit" name="lineEdit_server_port">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+            </widget>
            </item>
            <item row="1" column="2" rowspan="2">
             <widget class="QPushButton" name="pushButton_Test">
@@ -345,7 +353,11 @@
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QLineEdit" name="lineEdit_strategy_port"/>
+            <widget class="QLineEdit" name="lineEdit_strategy_port">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -496,62 +508,115 @@
             <property name="title">
              <string>代理服务器设置</string>
             </property>
-            <layout class="QGridLayout" name="gridLayout_2">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_8">
-               <property name="text">
-                <string>服务器IP:</string>
-               </property>
-              </widget>
+            <widget class="QCheckBox" name="check_proxy">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>115</y>
+               <width>167</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>连接成功后自动修改IE设置</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+            <widget class="QComboBox" name="comboBox_BS">
+             <property name="geometry">
+              <rect>
+               <x>220</x>
+               <y>90</y>
+               <width>141</width>
+               <height>22</height>
+              </rect>
+             </property>
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <item>
+              <property name="text">
+               <string>业务网BS</string>
+              </property>
              </item>
-             <item row="0" column="1">
-              <widget class="QLineEdit" name="proxy_ip"/>
+             <item>
+              <property name="text">
+               <string>公安网BS</string>
+              </property>
              </item>
-             <item row="1" column="0" colspan="2">
-              <layout class="QHBoxLayout" name="horizontalLayout_9">
-               <item>
-                <widget class="QLabel" name="label_9">
-                 <property name="text">
-                  <string>服务器端口:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="proxy_port"/>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_20">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
-             </item>
-             <item row="2" column="0" colspan="2">
-              <widget class="QCheckBox" name="check_proxy">
-               <property name="text">
-                <string>连接成功后自动修改IE设置</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="2">
-              <widget class="QFrame" name="frame_2">
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-              </widget>
-             </item>
-            </layout>
+            </widget>
+            <widget class="QLabel" name="label_28">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>90</y>
+               <width>131</width>
+               <height>16</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>默认代理服务器：</string>
+             </property>
+            </widget>
+            <widget class="QWidget" name="layoutWidget">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>20</y>
+               <width>346</width>
+               <height>48</height>
+              </rect>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>业务BS代理：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" colspan="2">
+               <widget class="QLineEdit" name="proxy_ip">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QLineEdit" name="proxy_port">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QLineEdit" name="proxy_port_3">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>公安BS代理：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" colspan="2">
+               <widget class="QLineEdit" name="proxy_ip_2">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
            </widget>
           </item>
          </layout>
@@ -657,49 +722,14 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>180</width>
-           <height>100</height>
+           <width>493</width>
+           <height>243</height>
           </rect>
          </property>
          <attribute name="label">
           <string>连接状态</string>
          </attribute>
          <layout class="QGridLayout" name="gridLayout">
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_10">
-            <property name="text">
-             <string>连接状态：</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLabel" name="label_stat">
-            <property name="text">
-             <string>未连接</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_11">
-            <property name="text">
-             <string>起始时间：</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="label_time">
-            <property name="text">
-             <string>00：00：00</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_12">
-            <property name="text">
-             <string>虚拟地址：</string>
-            </property>
-           </widget>
-          </item>
           <item row="2" column="1">
            <widget class="QLabel" name="label_addr">
             <property name="text">
@@ -716,20 +746,10 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_13">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_10">
             <property name="text">
-             <string>可用网段及掩码：</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1" rowspan="2">
-           <widget class="QLabel" name="label_mask">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+             <string>连接状态：</string>
             </property>
            </widget>
           </item>
@@ -743,6 +763,87 @@
             </property>
            </widget>
           </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>虚拟地址：</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1" rowspan="2">
+           <widget class="QLabel" name="label_mask">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>起始时间：</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_stat">
+            <property name="text">
+             <string>未连接</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_time">
+            <property name="text">
+             <string>00：00：00</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_13">
+            <property name="text">
+             <string>可用网段及掩码：</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_26">
+            <property name="text">
+             <string>当前代理服务器地址：</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLabel" name="label_27">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string>业务网BS</string>
+            </property>
+            <property name="icon">
+             <iconset resource="image/resource.qrc">
+              <normaloff>:/people.png</normaloff>:/people.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="text">
+             <string>公安网BS</string>
+            </property>
+            <property name="icon">
+             <iconset resource="image/resource.qrc">
+              <normaloff>:/polic.png</normaloff>:/polic.png</iconset>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
         <widget class="QWidget" name="page_4">
@@ -750,8 +851,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>65</width>
-           <height>16</height>
+           <width>493</width>
+           <height>243</height>
           </rect>
          </property>
          <attribute name="label">
@@ -773,39 +874,18 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>102</width>
-           <height>112</height>
+           <width>493</width>
+           <height>243</height>
           </rect>
          </property>
          <attribute name="label">
           <string>当前配置</string>
          </attribute>
          <layout class="QGridLayout" name="gridLayout_9">
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_14">
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_17">
             <property name="text">
-             <string>协议类型：</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLabel" name="label_19">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_15">
-            <property name="text">
-             <string>认证方式：</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="label_20">
-            <property name="text">
-             <string/>
+             <string>服务端口：</string>
             </property>
            </widget>
           </item>
@@ -816,24 +896,10 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="1">
-           <widget class="QLabel" name="label_21">
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_15">
             <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_17">
-            <property name="text">
-             <string>服务端口：</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QLabel" name="label_22">
-            <property name="text">
-             <string/>
+             <string>认证方式：</string>
             </property>
            </widget>
           </item>
@@ -841,6 +907,41 @@
            <widget class="QLabel" name="label_18">
             <property name="text">
              <string>策略端口：</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_14">
+            <property name="text">
+             <string>协议类型：</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_20">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_19">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="label_21">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLabel" name="label_22">
+            <property name="text">
+             <string/>
             </property>
            </widget>
           </item>

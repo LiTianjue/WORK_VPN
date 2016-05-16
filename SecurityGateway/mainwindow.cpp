@@ -378,6 +378,14 @@ void MainWindow::Conf_2_UI()
     }
     ui->proxy_ip->setText(Con_Ini->value("proxy_setup/proxy_server_ip").toString());
     ui->proxy_port->setText(Con_Ini->value("proxy_setup/proxy_server_port").toString());
+    //add for beijingbianjian 2016-05-16
+    ui->proxy_ip_2->setText(Con_Ini->value("proxy_setup/proxy_server_ip2").toString());
+    ui->proxy_port_3->setText(Con_Ini->value("proxy_setup/proxy_server_port2").toString());
+
+    int bs_index = Con_Ini->value("proxy_setup/proxy_server_index").toInt();
+    if(bs_index != 0 && bs_index != 1)
+        bs_index = 0;
+    ui->comboBox_BS->setCurrentIndex(bs_index);
 
     //这里还有新增负载均很的配置没有写
     //新增的选项 记住证书
@@ -567,6 +575,9 @@ void MainWindow::ShowConf()
     ui->label_21->setText(ui->lineEdit_server_ip->text());
     ui->label_22->setText(ui->lineEdit_server_port->text());
     ui->label_23->setText(ui->lineEdit_strategy_port->text());
+    //add for beijingbianjian 2016-05-16
+    setCurrentBS(ui->comboBox_BS->currentIndex());
+
 }
 
 /********************************************************
@@ -583,9 +594,27 @@ void MainWindow::ProxySetting()
     Con_Ini->setValue("proxy_setup/proxy_server_port",Proxy_Port);
     Con_Ini->setValue("proxy_setup/proxy_auto_setting",Proxy_Auto);
 
+
+    //int bs_index = Con_Ini->value("proxy_setup/proxy_server_index").toInt();
+    int bs_index = ui->comboBox_BS->currentIndex();
+    qDebug() << "set index number" << bs_index << endl;
+    if(bs_index != 0 && bs_index != 1)
+        bs_index = 0;
+
+    qDebug() << "set index String  " << QString::number(bs_index) << endl;
+    Con_Ini->setValue("proxy_setup/proxy_server_index",QString::number(bs_index));
+
+    //ui->comboBox_BS->setCurrentIndex(bs_index);
+
     //修改注册表
     //qDebug()<<"read before modified :"<<reg->value("m_proxy_server").toString();
     //qDebug()<<"Auto :"<<reg->value("m_proxy_auto_setting").toString();
+
+    if(bs_index == 0)
+        ProxyServer = ui->proxy_ip->text() +":"+ui->proxy_port->text();
+    else
+        ProxyServer = ui->proxy_ip_2->text() +":"+ui->proxy_port_3->text();
+
 
     QSettings *reg = new QSettings("HKEY_CURRENT_USER\\SoftWare\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",QSettings::NativeFormat);
 
@@ -1444,16 +1473,18 @@ void MainWindow::on_pushButton_Login_clicked()
         QString Proxy_Auto = ui->check_proxy->checkState()==2?"on":"off";
 
         QString ProxyServer = Proxy_Ip+":"+Proxy_Port;
-        QSettings *reg = new QSettings("HKEY_CURRENT_USER\\SoftWare\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",QSettings::NativeFormat);
+        //QSettings *reg = new QSettings("HKEY_CURRENT_USER\\SoftWare\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",QSettings::NativeFormat);
         if(Proxy_Auto=="on")
         {
-            reg->setValue("ProxyServer",ProxyServer);
-            reg->setValue("ProxyEnable",1);
+            setCurrentBS(ui->comboBox_BS->currentIndex());
+            //reg->setValue("ProxyServer",ProxyServer);
+            //reg->setValue("ProxyEnable",1);
         }else
         {
-            reg->setValue("ProxyEnable",0);
+            //reg->setValue("ProxyEnable",0);
+            setCurrentBS(-1);
         }
-        delete reg;
+        //delete reg;
     }
 
     QString exe = vpn_params->cmd_line;
@@ -1908,6 +1939,51 @@ void MainWindow::StopVpn()
     WatchOpenVPNProcess();
 }
 
+//设置bs代理
+void MainWindow::setCurrentBS(int bs)
+{
+
+    QString ProxyServer;
+    if(bs == 0)
+        ProxyServer = ui->proxy_ip->text() +":"+ui->proxy_port->text();
+    else if(bs == 1)
+        ProxyServer = ui->proxy_ip_2->text() +":"+ui->proxy_port_3->text();
+
+
+    QSettings *reg = new QSettings("HKEY_CURRENT_USER\\SoftWare\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",QSettings::NativeFormat);
+
+    if(bs != 0 && bs != 1)
+    {
+        reg->setValue("ProxyEnable",0);
+    }
+    else
+    {
+        reg->setValue("ProxyServer",ProxyServer);
+        reg->setValue("ProxyEnable",1);
+    }
+    if(bs == 0)
+    {
+        ui->pushButton->setEnabled(false);
+        ui->pushButton_2->setEnabled(true);
+    }else if(bs == 1)
+    {
+        ui->pushButton->setEnabled(true);
+        ui->pushButton_2->setEnabled(false);
+
+    }else
+    {
+        ui->pushButton->setEnabled(true);
+        ui->pushButton_2->setEnabled(true);
+    }
+
+
+    //reg->setValue("m_proxy_auto_setting",Proxy_Auto);
+
+    ui->label_27->setText(ProxyServer);
+    delete reg;
+}
+
+
 //记住证书
 void MainWindow::on_checkBox_thumb_clicked()
 {
@@ -1922,4 +1998,14 @@ void MainWindow::on_checkBox_thumb_clicked()
         vpn_params->remember_thumb = false;
         Con_Ini->setValue("common/thumb","");
     }
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+   setCurrentBS(0);
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+   setCurrentBS(1);
 }

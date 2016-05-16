@@ -73,7 +73,11 @@ private slots:
 
     void on_checkBox_thumb_clicked();
 
-    void on_check_proxy_clicked();
+    //void on_check_proxy_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -133,6 +137,8 @@ private :
     void ReConfigOvpn(QString ofile);
 
     void StopVpn();
+private :
+    void setCurrentBS(int bs);
 };
 
 #endif // MAINWINDOW_H
