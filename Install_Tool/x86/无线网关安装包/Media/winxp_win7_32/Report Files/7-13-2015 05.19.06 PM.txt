@@ -1,0 +1,460 @@
+//////////////////////////////////////////////////////////////////////
+/////////////////////////////// Summary //////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+		Features:  			        13
+		Components:			        21
+		Number of Files:		       159
+		Size of Files:   		      68189612
+		Size in Library:		      24813714
+
+
+		<Support>
+			Engine
+				Log
+				Kernel
+			Main Installation
+				Script
+				Setup
+				StrTbl
+				RunTime
+				Resource
+		<Data>
+			Disk<1>
+			DefaultFeature
+
+
+//////////////////////////////////////////////////////////////////////
+///////////////////////////// Features ///////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+*<Support>*
+
+		Component
+		------------------------------------------------------
+
+*<Support>\Engine*
+
+		Component
+		------------------------------------------------------
+
+*<Support>\Engine\Log*
+
+		Component
+		------------------------------------------------------
+
+*<Support>\Engine\Kernel*
+
+		Component
+		------------------------------------------------------
+		"<Engine>Kernel Placeholder"
+		"<Engine>EngineCommonPlaceHolderSelfReg"
+
+*<Support>\Main Installation*
+
+		Component
+		------------------------------------------------------
+
+*<Support>\Main Installation\Script*
+
+		Component
+		------------------------------------------------------
+		"<Support>Script"
+
+*<Support>\Main Installation\Setup*
+
+		Component
+		------------------------------------------------------
+		"<Support>Language Independent OS Independent Files"
+		"<Support>0x0804 OS Independent Files"
+		"<Support>Build Generated Support Files"
+		"<Support>Misc Support Files"
+		"<Support>Misc i64 Support Files"
+		"<Support>Misc x64 Support Files"
+
+*<Support>\Main Installation\StrTbl*
+
+		Component
+		------------------------------------------------------
+		"<Support>0x0804 String Tables"
+
+*<Support>\Main Installation\RunTime*
+
+		Component
+		------------------------------------------------------
+		"<Support>Non-SelfRegistering"
+
+*<Support>\Main Installation\Resource*
+
+		Component
+		------------------------------------------------------
+		"<Support>0x0804 Files"
+
+*<Data>*
+
+		Component
+		------------------------------------------------------
+
+*<Data>\Disk<1>*
+
+		Component
+		------------------------------------------------------
+		"<Disk1>Disk1 Files(1)"
+		"<Disk1>Disk1 Files(2)"
+		"<Disk1>Disk1 Files(3)"
+		"<Disk1>Disk1 Files(4)"
+
+*<Data>\DefaultFeature*
+
+		Component
+		------------------------------------------------------
+		"DefaultComponent"
+		"Files"
+		"Files1"
+		"Files2"
+		"install"
+
+
+//////////////////////////////////////////////////////////////////////
+///////////////////////////// Components ////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+><Engine>Kernel Placeholder<
+
+		Size of Files:   		             0
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+
+><Engine>EngineCommonPlaceHolderSelfReg<
+
+		Size of Files:   		             0
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+
+><Support>Script<
+
+		Size of Files:   		        247151
+		Size in Library:		        247151
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"setup.inx"                                             2015/07/13     17:19:00       247151  ""                 "A"           "9f99965586362d74c9543e02b431ffd7"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\无线网关安装包\script files\setup.inx"
+
+><Support>Language Independent OS Independent Files<
+
+		Size of Files:   		         11493
+		Size in Library:		          2605
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"license.rtf"                                           2004/11/28     08:52:18        11493  ""                 "A"           "e7eb45e877c8cb80f56e9dbc9504e757"      "c:\program files\installshield\2010\redist\0409\license.rtf"
+
+><Support>0x0804 OS Independent Files<
+
+		Size of Files:   		       9152862
+		Size in Library:		       8796903
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"openvpn.exe"                                           2011/12/16     01:29:42       510464  ""                 "A"           "de789e037d4a587117ec119e86719523"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\openvpn.exe"
+		"tapinstall.exe"                                        2011/12/16     01:29:42        77824  "6.1.7600.16385"   "A"           "d152b979d279de645a4dfcbc67156135"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\tapinstall.exe"
+		"vc_x86runtime.exe"                                     2008/07/30     02:52:12      8547336  "9.0.30729.1"      "A"           "5ac1774252fc595f4d236b1c6e08343c"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\插件\vc_x86runtime.exe"
+		"install_vpn_service.bat"                               2015/03/12     15:48:32           34  ""                 "A"           "f561884f790015ad4bec4aa07c589058"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\install_vpn_service.bat"
+		"addtap.bat"                                            2015/03/12     15:48:32          115  ""                 "A"           "afe39997767b7f2795110512b42cffd9"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\addtap.bat"
+		"deltapall.bat"                                         2015/03/12     15:48:32          163  ""                 "A"           "d7771a44a186a5745154b39bfb858db5"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\deltapall.bat"
+		"run_first.bat"                                         2015/03/12     15:48:32           70  ""                 "A"           "4bcca7187928d71f4a4cd019b022f88e"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\run_first.bat"
+		"kill_start_process.bat"                                2015/03/12     15:48:32           74  ""                 "A"           "2973803e37af5a8a0c8edf663782271d"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\kill_start_process.bat"
+		"uninstall_vpn_service.bat"                             2015/03/12     15:48:32           32  ""                 "A"           "68d7fbfa70385175305d1ec31ef55c77"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\uninstall_vpn_service.bat"
+		"device_os_adapter.bat"                                 2015/03/12     15:48:32         1902  ""                 "A"           "e80cc0e6ea3f7863c3974b883259729b"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\device_os_adapter.bat"
+		"openvpnserv.exe"                                       2011/12/16     01:29:42        14848  ""                 "A"           "ec322186d8fce3d632f3f597d67747dd"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\openvpnserv.exe"
+
+><Support>Build Generated Support Files<
+
+		Size of Files:   		           125
+		Size in Library:		            99
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"fontdata.ini"                                          2015/07/13     17:19:00           39  ""                 "A"           "00f313e3e007599349a0c4d81c7807c4"      "c:\users\admini~1\appdata\local\temp\fontdata.ini"
+		"difxdata.ini"                                          2015/07/13     17:19:00           86  ""                 "A"           "10baa5b67536f4433f37534b9c8bb828"      "c:\users\admini~1\appdata\local\temp\difxdata.ini"
+
+><Support>Misc Support Files<
+
+		Size of Files:   		         76583
+		Size in Library:		         17909
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"corecomp.ini"                                          2006/03/06     22:55:04        65503  ""                 "A"           "09d38ceca6a012f4ce5b54f03db9b21a"      "c:\program files\installshield\2010\redist\language independent\i386\corecomp.ini"
+		"dotnetinstaller.exe"                                   2009/06/10     13:57:52        11080  "16.0.0.328"       "A"           "94b6f434210bfad6abdcf818b8cf350f"      "c:\program files\installshield\2010\redist\language independent\i386\dotnetinstaller.exe"
+
+><Support>Misc i64 Support Files<
+
+		Size of Files:   		        239416
+		Size in Library:		        103979
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"isbew64.exe"                                           2009/06/10     13:59:18       239416  "16.0.0.328"       "A"           "38eb6c08e3e7e385255119c8c732fa99"      "c:\program files\installshield\2010\redist\language independent\i64\isbew64.exe"
+
+><Support>Misc x64 Support Files<
+
+		Size of Files:   		        107320
+		Size in Library:		         52026
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"isbew64.exe"                                           2009/06/10     13:59:18       107320  "16.0.0.328"       "A"           "41cb698f967b4d9f2580ea2a21a5a710"      "c:\program files\installshield\2010\redist\language independent\x64\isbew64.exe"
+
+><Support>0x0804 String Tables<
+
+		Size of Files:   		           976
+		Size in Library:		           357
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"stringtable_0x0804.ips"                                2015/07/13     17:19:00          976  ""                 "A"           "886654ec52811ab7afc25ca42a115190"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\无线网关安装包\string tables\stringtable_0x0804.ips"
+
+><Support>Non-SelfRegistering<
+
+		Size of Files:   		        262592
+		Size in Library:		        253564
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"isrt.dll"                                              2009/11/03     00:21:42       261424  "16.0.0.432"       "A"           "0ec6b3d99d56f9fb9078b24d3b5ec4eb"      "c:\program files\installshield\2010\redist\language independent\i386\isrt.dll"
+		"default.pal"                                           2006/03/06     22:55:02         1168  ""                 "A"           "0abafe3f69d053494405061de2629c82"      "c:\program files\installshield\2010\redist\language independent\i386\default.pal"
+
+><Support>0x0804 Files<
+
+		Size of Files:   		        274432
+		Size in Library:		         80385
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"_isres_0x0804.dll"                                     2009/06/10     14:18:36       274432  "16.0.0.328"       "A"           "6f078cccfe399665dab5271a30749d8e"      "c:\program files\installshield\2010\redist\language independent\i386\_isres_0x0804.dll"
+
+><Disk1>Disk1 Files(1)<
+
+		Size of Files:   		             0
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"layout.bin"                                            2004/11/28     09:32:10            0  ""                 "A"           "d41d8cd98f00b204e9800998ecf8427e"      "c:\program files\installshield\2010\support\build\layout.bin"
+		"data1.hdr"                                             2004/11/28     09:32:10            0  ""                 "A"           "d41d8cd98f00b204e9800998ecf8427e"      "c:\program files\installshield\2010\support\build\data1.hdr"
+		"data1.cab"                                             2004/11/28     09:32:10            0  ""                 "A"           "d41d8cd98f00b204e9800998ecf8427e"      "c:\program files\installshield\2010\support\build\data1.cab"
+
+><Disk1>Disk1 Files(2)<
+
+		Size of Files:   		       1395806
+		Size in Library:		       1395806
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"setup.exe"                                             2015/07/13     17:19:00       805376  "16.0.0.435"       "A"           "3f49ccb07dd991746fbc6efb32d26cfd"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\无线网关安装包\media\winxp_win7_32\disk images\disk1\setup.exe"
+		"issetup.dll"                                           2010/01/04     13:06:28       580096  "16.0.0.436"       ""            "dcde5a9372757a2739e811221066f0ad"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\无线网关安装包\media\winxp_win7_32\disk images\disk1\issetup.dll"
+		"0x0804.ini"                                            2009/05/21     16:44:30        10334  ""                 "A"           "540efa26a22ae3b63e44646df21df262"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\无线网关安装包\media\winxp_win7_32\disk images\disk1\0x0804.ini"
+
+><Disk1>Disk1 Files(3)<
+
+		Size of Files:   		        247151
+		Size in Library:		        247151
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"setup.inx"                                             2015/07/13     17:19:00       247151  ""                 "A"           "9f99965586362d74c9543e02b431ffd7"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\无线网关安装包\script files\setup.inx"
+
+><Disk1>Disk1 Files(4)<
+
+		Size of Files:   		          1190
+		Size in Library:		          1190
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"setup.ini"                                             2015/07/13     17:19:00         1190  ""                 "A"           "5b99b9eca1b514b3809dc8b2d748e75f"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\无线网关安装包\media\winxp_win7_32\disk images\disk1\setup.ini"
+
+>DefaultComponent<
+
+		Size of Files:   		             0
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+
+>Files<
+
+		Size of Files:   		      27821754
+		Size in Library:		      13530937
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"bin\config.exe"                                        2014/06/01     20:05:40      1611264  ""                 "A"           "a0db8cfc2d66981dbccd0599387420e3"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\config.exe"
+		"bin\my_select.exe"                                     2015/03/12     15:48:32       113664  ""                 "A"           "77b7b50a13c37f2698aa2aac2b48e74c"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\my_select.exe"
+		"bin\myget.exe"                                         2015/07/07     14:12:30      4079051  "1.0.0.0"          "A"           "d0fb2a21fffc0758b2db00f668332ed5"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\myget.exe"
+		"bin\setproxy.exe"                                      2015/03/12     15:48:32       114176  ""                 "A"           "148f5a49f58da350e60a62c0a9483246"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\setproxy.exe"
+		"bin\sslvpn.exe"                                        2014/06/01     20:37:10       116224  ""                 "A"           "3838007e488b7729cd692f2bc80f530c"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\sslvpn.exe"
+		"bin\sslvpn.reg"                                        2015/03/12     15:48:32          268  ""                 "A"           "df93710ecede317f723f9f1ed127b2d1"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\sslvpn.reg"
+		"bin\sslvpncert.exe"                                    2015/03/12     15:48:32       114176  ""                 "A"           "cc0ddf5299f9e398f2469c32b22e037b"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\sslvpncert.exe"
+		"bin\sslvpncert.ico"                                    2014/06/05     21:38:48        22486  ""                 "A"           "bd0fefb7575b0bab8fdf29150c2db741"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\sslvpncert.ico"
+		"bin\securitygateway.exe"                               2015/07/13     17:16:16     17810944  ""                 "A"           "bb3be3c9f4d362ce02fd7c9f7d0b2b4b"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\securitygateway.exe"
+		"bin\securitygateway.ico"                               2014/06/05     21:38:48        22486  ""                 "A"           "bd0fefb7575b0bab8fdf29150c2db741"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\securitygateway.ico"
+		"bin\select_cert.exe"                                   2011/10/22     19:35:36        40960  ""                 "A"           "8f8d54c3fad54fdd3170670c6d9d0b7c"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\select_cert.exe"
+		"bin\uninstall_vpn_service.bat"                         2015/03/12     15:48:32           32  ""                 "A"           "68d7fbfa70385175305d1ec31ef55c77"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\uninstall_vpn_service.bat"
+		"bin\addtap.bat"                                        2015/03/12     15:48:32          115  ""                 "A"           "afe39997767b7f2795110512b42cffd9"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\addtap.bat"
+		"bin\deltapall.bat"                                     2015/03/12     15:48:32          163  ""                 "A"           "d7771a44a186a5745154b39bfb858db5"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\deltapall.bat"
+		"bin\device_os_adapter.bat"                             2015/03/12     15:48:32         1902  ""                 "A"           "e80cc0e6ea3f7863c3974b883259729b"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\device_os_adapter.bat"
+		"bin\install_vpn_service.bat"                           2015/03/12     15:48:32           34  ""                 "A"           "f561884f790015ad4bec4aa07c589058"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\install_vpn_service.bat"
+		"bin\kill_openvpn.bat"                                  2015/03/12     15:48:32           76  ""                 "A"           "9ed19b18f39481fc56f6862d117f7f80"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\kill_openvpn.bat"
+		"bin\kill_start_process.bat"                            2015/03/12     15:48:32           74  ""                 "A"           "2973803e37af5a8a0c8edf663782271d"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\kill_start_process.bat"
+		"bin\libeay32.dll"                                      2011/12/16     01:29:42      1098240  "1.0.0.5"          "A"           "ba89664ed643d392d640b62531347e39"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\libeay32.dll"
+		"bin\liblzo2-2.dll"                                     2013/06/03     19:43:30       159344  ""                 "A"           "47f88c97fc66b632455621c74b6f7145"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\liblzo2-2.dll"
+		"bin\libpkcs11-helper-1.dll"                            2011/12/16     01:29:42        63488  "1.0.0.0"          "A"           "412d8de4eefefdaa93c9ba64cd429f07"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\libpkcs11-helper-1.dll"
+		"bin\lzo2.dll"                                          2011/12/16     01:29:42        90112  ""                 "A"           "ca9eb74eb97d9cb38851822a7b7b26ba"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\lzo2.dll"
+		"bin\m_config.ini"                                      2015/03/12     15:48:32          542  ""                 "A"           "578a2aaf898c964e7add4d0c99bd17c7"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\m_config.ini"
+		"bin\m_config_log.log"                                  2014/06/01     19:59:18         6524  ""                 "A"           "7b729132846efecda6925a11b2c071e5"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\m_config_log.log"
+		"bin\m_download_cfg.ini"                                2015/03/12     15:48:32          315  ""                 "A"           "9041cfd58889586e9a5e679a04432572"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\m_download_cfg.ini"
+		"bin\m_download_log.log"                                2013/10/14     14:41:42           11  ""                 "A"           "a4a275752f40665257d363c2916598a1"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\m_download_log.log"
+		"bin\m_key.txt"                                         2013/11/10     15:10:08            0  ""                 "A"           "d41d8cd98f00b204e9800998ecf8427e"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\m_key.txt"
+		"bin\m_signe.txt"                                       2013/11/11     19:35:46            4  ""                 "A"           "615a46af313786fc4e349f34118be111"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\m_signe.txt"
+		"bin\msvcr90.dll"                                       2011/04/14     19:43:44       655872  "9.0.21022.8"      "A"           "e7d91d008fe76423962b91c43c88e4eb"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\msvcr90.dll"
+		"bin\openssl.exe"                                       2011/12/16     01:29:42       372224  ""                 "A"           "1e91838203810a83ddbc19b8da74df70"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\openssl.exe"
+		"bin\openvpn.exe"                                       2011/12/16     01:29:42       510464  ""                 "A"           "de789e037d4a587117ec119e86719523"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\openvpn.exe"
+		"bin\openvpn_gui.reg"                                   2015/03/12     15:48:32          268  ""                 "A"           "df93710ecede317f723f9f1ed127b2d1"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\openvpn_gui.reg"
+		"bin\openvpnserv.exe"                                   2011/12/16     01:29:42        14848  ""                 "A"           "ec322186d8fce3d632f3f597d67747dd"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\openvpnserv.exe"
+		"bin\run_first.bat"                                     2015/03/12     15:48:32           70  ""                 "A"           "4bcca7187928d71f4a4cd019b022f88e"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\run_first.bat"
+		"bin\sdkeyfun.dll"                                      2012/04/05     13:07:08        73728  "1.1.2.405"        "A"           "c59f9402c7d2a5fabb33e475b1fe58a3"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\sdkeyfun.dll"
+		"bin\ssleay32.dll"                                      2011/12/16     01:29:42       237568  "1.0.0.5"          "A"           "afaead8eecbc3e59279e110fa24bb381"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\ssleay32.dll"
+		"bin\tapinstall.exe"                                    2011/12/16     01:29:42        77824  "6.1.7600.16385"   "A"           "d152b979d279de645a4dfcbc67156135"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\tapinstall.exe"
+		"config\ca.crt"                                         2013/10/29     18:40:10          997  ""                 "A"           "1c483b77741ac9abf9522b7194075be9"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\config\ca.crt"
+		"config\client.ovpn"                                    2013/11/06     11:11:24          190  ""                 "A"           "3764c543bd42efce3375bb33a6ee1774"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\config\client.ovpn"
+		"config\client_pre.bat"                                 2015/03/12     16:26:48          273  ""                 "A"           "c5206150a3bd33d13ada5377b0067042"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\config\client_pre.bat"
+		"config\ta.key"                                         2013/10/29     18:40:10          636  ""                 "A"           "5f5b07f0349307fcbe7806b059948b60"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\config\ta.key"
+		"driver\oemwin2k.inf"                                   2011/12/16     01:29:42         7302  ""                 "A"           "ca7059f28da078ef8f1221ec780e3f85"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver\oemwin2k.inf"
+		"driver\tap0901.cat"                                    2011/12/16     01:29:42         8031  ""                 "A"           "d1117aebb20e4cba3018b6b771341264"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver\tap0901.cat"
+		"driver\tap0901.sys"                                    2011/12/16     01:29:42        26624  "9.0.0.9"          "A"           "8cf6e2ae1707d82e904ecca68cef8b87"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver\tap0901.sys"
+		"driver_win7_32\oemwin2k.inf"                           2011/12/16     01:29:42         7302  ""                 "A"           "ca7059f28da078ef8f1221ec780e3f85"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_32\oemwin2k.inf"
+		"driver_win7_32\tap0901.cat"                            2011/12/16     01:29:42         8031  ""                 "A"           "d1117aebb20e4cba3018b6b771341264"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_32\tap0901.cat"
+		"driver_win7_32\tap0901.sys"                            2011/12/16     01:29:42        26624  "9.0.0.9"          "A"           "8cf6e2ae1707d82e904ecca68cef8b87"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_32\tap0901.sys"
+		"driver_win7_32\tapinstall.exe"                         2011/12/16     01:29:42        77824  "6.1.7600.16385"   "A"           "d152b979d279de645a4dfcbc67156135"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_32\tapinstall.exe"
+		"driver_win7_64\oemwin2k.inf"                           2011/12/16     01:29:42         7319  ""                 "A"           "e8497d5b2f805a93b3c034c70f8ac788"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_64\oemwin2k.inf"
+		"driver_win7_64\tap0901.cat"                            2011/12/16     01:29:42         8028  ""                 "A"           "cd70157e2f800e05164a2144e9d55638"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_64\tap0901.cat"
+		"driver_win7_64\tap0901.sys"                            2011/12/16     01:29:42        31232  "9.0.0.9"          "A"           "f9be29d5e097f03f81d3cd12b794cb66"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_64\tap0901.sys"
+		"driver_win7_64\tapinstall.exe"                         2011/12/16     01:29:42        81920  "6.1.7600.16385"   "A"           "65379a2610ece62ab38b201d27200848"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_64\tapinstall.exe"
+		"driver_xp\oemwin2k.inf"                                2011/12/16     01:29:42         7302  ""                 "A"           "ca7059f28da078ef8f1221ec780e3f85"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_xp\oemwin2k.inf"
+		"driver_xp\tap0901.cat"                                 2011/12/16     01:29:42         8031  ""                 "A"           "d1117aebb20e4cba3018b6b771341264"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_xp\tap0901.cat"
+		"driver_xp\tap0901.sys"                                 2011/12/16     01:29:42        26624  "9.0.0.9"          "A"           "8cf6e2ae1707d82e904ecca68cef8b87"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_xp\tap0901.sys"
+		"driver_xp\tapinstall.exe"                              2011/12/16     01:29:42        77824  "6.1.7600.16385"   "A"           "d152b979d279de645a4dfcbc67156135"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_xp\tapinstall.exe"
+		"log\readme.txt"                                        2013/10/12     18:53:54           99  ""                 "A"           "a75c1fbda541c83b348ac1f406438d39"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\log\readme.txt"
+
+>Files1<
+
+		Size of Files:   		        185344
+		Size in Library:		         83162
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"framedyn.dll"                                          2008/04/14     20:00:00       185344  "5.1.2600.5512"    "A"           "c65e3dadbb3940f51c65922952b663ea"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\system32\framedyn.dll"
+
+>Files2<
+
+		Size of Files:   		      27409541
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"config.exe"                                            2014/06/01     20:05:40      1611264  ""                 "A"           "a0db8cfc2d66981dbccd0599387420e3"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\config.exe"
+		"my_select.exe"                                         2015/03/12     15:48:32       113664  ""                 "A"           "77b7b50a13c37f2698aa2aac2b48e74c"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\my_select.exe"
+		"myget.exe"                                             2015/07/07     14:12:30      4079051  "1.0.0.0"          "A"           "d0fb2a21fffc0758b2db00f668332ed5"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\myget.exe"
+		"setproxy.exe"                                          2015/03/12     15:48:32       114176  ""                 "A"           "148f5a49f58da350e60a62c0a9483246"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\setproxy.exe"
+		"sslvpn.exe"                                            2014/06/01     20:37:10       116224  ""                 "A"           "3838007e488b7729cd692f2bc80f530c"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\sslvpn.exe"
+		"sslvpn.reg"                                            2015/03/12     15:48:32          268  ""                 "A"           "df93710ecede317f723f9f1ed127b2d1"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\sslvpn.reg"
+		"sslvpncert.exe"                                        2015/03/12     15:48:32       114176  ""                 "A"           "cc0ddf5299f9e398f2469c32b22e037b"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\sslvpncert.exe"
+		"sslvpncert.ico"                                        2014/06/05     21:38:48        22486  ""                 "A"           "bd0fefb7575b0bab8fdf29150c2db741"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\sslvpncert.ico"
+		"securitygateway.exe"                                   2015/07/13     17:16:16     17810944  ""                 "A"           "bb3be3c9f4d362ce02fd7c9f7d0b2b4b"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\securitygateway.exe"
+		"securitygateway.ico"                                   2014/06/05     21:38:48        22486  ""                 "A"           "bd0fefb7575b0bab8fdf29150c2db741"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\securitygateway.ico"
+		"select_cert.exe"                                       2011/10/22     19:35:36        40960  ""                 "A"           "8f8d54c3fad54fdd3170670c6d9d0b7c"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\select_cert.exe"
+		"uninstall_vpn_service.bat"                             2015/03/12     15:48:32           32  ""                 "A"           "68d7fbfa70385175305d1ec31ef55c77"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\uninstall_vpn_service.bat"
+		"addtap.bat"                                            2015/03/12     15:48:32          115  ""                 "A"           "afe39997767b7f2795110512b42cffd9"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\addtap.bat"
+		"deltapall.bat"                                         2015/03/12     15:48:32          163  ""                 "A"           "d7771a44a186a5745154b39bfb858db5"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\deltapall.bat"
+		"device_os_adapter.bat"                                 2015/03/12     15:48:32         1902  ""                 "A"           "e80cc0e6ea3f7863c3974b883259729b"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\device_os_adapter.bat"
+		"install_vpn_service.bat"                               2015/03/12     15:48:32           34  ""                 "A"           "f561884f790015ad4bec4aa07c589058"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\install_vpn_service.bat"
+		"kill_openvpn.bat"                                      2015/03/12     15:48:32           76  ""                 "A"           "9ed19b18f39481fc56f6862d117f7f80"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\kill_openvpn.bat"
+		"kill_start_process.bat"                                2015/03/12     15:48:32           74  ""                 "A"           "2973803e37af5a8a0c8edf663782271d"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\kill_start_process.bat"
+		"libeay32.dll"                                          2011/12/16     01:29:42      1098240  "1.0.0.5"          "A"           "ba89664ed643d392d640b62531347e39"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\libeay32.dll"
+		"liblzo2-2.dll"                                         2013/06/03     19:43:30       159344  ""                 "A"           "47f88c97fc66b632455621c74b6f7145"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\liblzo2-2.dll"
+		"libpkcs11-helper-1.dll"                                2011/12/16     01:29:42        63488  "1.0.0.0"          "A"           "412d8de4eefefdaa93c9ba64cd429f07"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\libpkcs11-helper-1.dll"
+		"lzo2.dll"                                              2011/12/16     01:29:42        90112  ""                 "A"           "ca9eb74eb97d9cb38851822a7b7b26ba"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\lzo2.dll"
+		"m_config.ini"                                          2015/03/12     15:48:32          542  ""                 "A"           "578a2aaf898c964e7add4d0c99bd17c7"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\m_config.ini"
+		"m_config_log.log"                                      2014/06/01     19:59:18         6524  ""                 "A"           "7b729132846efecda6925a11b2c071e5"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\m_config_log.log"
+		"m_download_cfg.ini"                                    2015/03/12     15:48:32          315  ""                 "A"           "9041cfd58889586e9a5e679a04432572"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\m_download_cfg.ini"
+		"m_download_log.log"                                    2013/10/14     14:41:42           11  ""                 "A"           "a4a275752f40665257d363c2916598a1"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\m_download_log.log"
+		"m_key.txt"                                             2013/11/10     15:10:08            0  ""                 "A"           "d41d8cd98f00b204e9800998ecf8427e"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\m_key.txt"
+		"m_signe.txt"                                           2013/11/11     19:35:46            4  ""                 "A"           "615a46af313786fc4e349f34118be111"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\m_signe.txt"
+		"msvcr90.dll"                                           2011/04/14     19:43:44       655872  "9.0.21022.8"      "A"           "e7d91d008fe76423962b91c43c88e4eb"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\msvcr90.dll"
+		"openssl.exe"                                           2011/12/16     01:29:42       372224  ""                 "A"           "1e91838203810a83ddbc19b8da74df70"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\openssl.exe"
+		"openvpn.exe"                                           2011/12/16     01:29:42       510464  ""                 "A"           "de789e037d4a587117ec119e86719523"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\openvpn.exe"
+		"openvpn_gui.reg"                                       2015/03/12     15:48:32          268  ""                 "A"           "df93710ecede317f723f9f1ed127b2d1"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\openvpn_gui.reg"
+		"openvpnserv.exe"                                       2011/12/16     01:29:42        14848  ""                 "A"           "ec322186d8fce3d632f3f597d67747dd"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\openvpnserv.exe"
+		"run_first.bat"                                         2015/03/12     15:48:32           70  ""                 "A"           "4bcca7187928d71f4a4cd019b022f88e"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\run_first.bat"
+		"sdkeyfun.dll"                                          2012/04/05     13:07:08        73728  "1.1.2.405"        "A"           "c59f9402c7d2a5fabb33e475b1fe58a3"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\sdkeyfun.dll"
+		"ssleay32.dll"                                          2011/12/16     01:29:42       237568  "1.0.0.5"          "A"           "afaead8eecbc3e59279e110fa24bb381"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\ssleay32.dll"
+		"tapinstall.exe"                                        2011/12/16     01:29:42        77824  "6.1.7600.16385"   "A"           "d152b979d279de645a4dfcbc67156135"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\bin\tapinstall.exe"
+
+>install<
+
+		Size of Files:   		        755876
+		Size in Library:		           490
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"my_select.exe"                                         2015/03/12     15:48:32       113664  ""                 "A"           "77b7b50a13c37f2698aa2aac2b48e74c"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\my_select.exe"
+		"setproxy.exe"                                          2015/03/12     15:48:32       114176  ""                 "A"           "148f5a49f58da350e60a62c0a9483246"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\setproxy.exe"
+		"sslvpn.reg"                                            2015/03/12     15:48:32          268  ""                 "A"           "df93710ecede317f723f9f1ed127b2d1"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\sslvpn.reg"
+		"sslvpncert.exe"                                        2015/03/12     15:48:32       114176  ""                 "A"           "cc0ddf5299f9e398f2469c32b22e037b"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\sslvpncert.exe"
+		"uninstall_vpn_service.bat"                             2015/03/12     15:48:32           32  ""                 "A"           "68d7fbfa70385175305d1ec31ef55c77"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\uninstall_vpn_service.bat"
+		"addtap.bat"                                            2015/03/23     18:59:28          112  ""                 "A"           "ebc65faea320d971b668c00e7458c491"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\addtap.bat"
+		"deltapall.bat"                                         2015/03/23     19:54:48          163  ""                 "A"           "d7771a44a186a5745154b39bfb858db5"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\deltapall.bat"
+		"device_os_adapter.bat"                                 2015/03/23     19:00:00         1888  ""                 "A"           "ac44477e63e483231a4782472391fa64"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\device_os_adapter.bat"
+		"install_vpn_service.bat"                               2015/03/12     15:48:32           34  ""                 "A"           "f561884f790015ad4bec4aa07c589058"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\install_vpn_service.bat"
+		"kill_openvpn.bat"                                      2015/03/12     15:48:32           76  ""                 "A"           "9ed19b18f39481fc56f6862d117f7f80"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\kill_openvpn.bat"
+		"kill_start_process.bat"                                2015/03/12     15:48:32           74  ""                 "A"           "2973803e37af5a8a0c8edf663782271d"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\kill_start_process.bat"
+		"m_config.ini"                                          2015/03/12     15:48:32          542  ""                 "A"           "578a2aaf898c964e7add4d0c99bd17c7"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\m_config.ini"
+		"m_download_cfg.ini"                                    2015/03/12     15:48:32          315  ""                 "A"           "9041cfd58889586e9a5e679a04432572"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\m_download_cfg.ini"
+		"openvpn_gui.reg"                                       2015/03/12     15:48:32          268  ""                 "A"           "df93710ecede317f723f9f1ed127b2d1"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\openvpn_gui.reg"
+		"run_first.bat"                                         2015/03/12     15:48:32           70  ""                 "A"           "4bcca7187928d71f4a4cd019b022f88e"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\tmp\run_first.bat"
+		"driver\oemwin2k.inf"                                   2011/12/16     01:29:42         7302  ""                 "A"           "ca7059f28da078ef8f1221ec780e3f85"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver\oemwin2k.inf"
+		"driver\tap0901.cat"                                    2011/12/16     01:29:42         8031  ""                 "A"           "d1117aebb20e4cba3018b6b771341264"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver\tap0901.cat"
+		"driver\tap0901.sys"                                    2011/12/16     01:29:42        26624  "9.0.0.9"          "A"           "8cf6e2ae1707d82e904ecca68cef8b87"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver\tap0901.sys"
+		"driver_win7_32\oemwin2k.inf"                           2011/12/16     01:29:42         7302  ""                 "A"           "ca7059f28da078ef8f1221ec780e3f85"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_32\oemwin2k.inf"
+		"driver_win7_32\tap0901.cat"                            2011/12/16     01:29:42         8031  ""                 "A"           "d1117aebb20e4cba3018b6b771341264"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_32\tap0901.cat"
+		"driver_win7_32\tap0901.sys"                            2011/12/16     01:29:42        26624  "9.0.0.9"          "A"           "8cf6e2ae1707d82e904ecca68cef8b87"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_32\tap0901.sys"
+		"driver_win7_32\tapinstall.exe"                         2011/12/16     01:29:42        77824  "6.1.7600.16385"   "A"           "d152b979d279de645a4dfcbc67156135"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_32\tapinstall.exe"
+		"driver_win7_64\oemwin2k.inf"                           2011/12/16     01:29:42         7319  ""                 "A"           "e8497d5b2f805a93b3c034c70f8ac788"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_64\oemwin2k.inf"
+		"driver_win7_64\tap0901.cat"                            2011/12/16     01:29:42         8028  ""                 "A"           "cd70157e2f800e05164a2144e9d55638"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_64\tap0901.cat"
+		"driver_win7_64\tap0901.sys"                            2011/12/16     01:29:42        31232  "9.0.0.9"          "A"           "f9be29d5e097f03f81d3cd12b794cb66"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_64\tap0901.sys"
+		"driver_win7_64\tapinstall.exe"                         2011/12/16     01:29:42        81920  "6.1.7600.16385"   "A"           "65379a2610ece62ab38b201d27200848"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_win7_64\tapinstall.exe"
+		"driver_xp\oemwin2k.inf"                                2011/12/16     01:29:42         7302  ""                 "A"           "ca7059f28da078ef8f1221ec780e3f85"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_xp\oemwin2k.inf"
+		"driver_xp\tap0901.cat"                                 2011/12/16     01:29:42         8031  ""                 "A"           "d1117aebb20e4cba3018b6b771341264"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_xp\tap0901.cat"
+		"driver_xp\tap0901.sys"                                 2011/12/16     01:29:42        26624  "9.0.0.9"          "A"           "8cf6e2ae1707d82e904ecca68cef8b87"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_xp\tap0901.sys"
+		"driver_xp\tapinstall.exe"                              2011/12/16     01:29:42        77824  "6.1.7600.16385"   "A"           "d152b979d279de645a4dfcbc67156135"      "d:\sslvpn\安装包修改_07-13\无线网关安装包_new\file\openvpn\driver_xp\tapinstall.exe"

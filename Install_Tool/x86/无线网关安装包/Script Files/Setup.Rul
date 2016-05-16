@@ -1,0 +1,468 @@
+//===========================================================================
+//
+//  File Name:    Setup.rul
+//
+//  Description:  Blank setup main script file
+//
+//  Comments:     Blank setup is an empty setup project. If you want to
+//				  create a new project via. step-by step instructions use the
+//				  Project Assistant.
+//
+//===========================================================================
+
+// Included header files ----------------------------------------------------
+#include "ifx.h"
+
+
+//---------------------------------------------------------------------------
+// OnBegin
+//
+// The OnBegin event is called directly by the framework after the setup
+// initializes. Note that this event will be called AFTER "Initialization"
+// events (i.e.) OnSetTARGETDIR, OnCheckMediaPassword.
+//
+// Note: This event will not be called automatically in a
+// program...endprogram style setup.
+//---------------------------------------------------------------------------
+function OnBegin()
+begin
+    // TODO: Perform custom initialization steps, check requirements, etc.  
+    //TARGETDIR = "C:\\Program Files";   
+	/*   
+    if(LaunchAppAndWait (SUPPORTDIR ^"VC_x86Runtime.exe" , "" ,WAIT)<0) then
+		MessageBox ("安装VC运行环境时发生意外，请重新安装。",SEVERE);  
+	endif;  
+	 if(LaunchAppAndWait (SUPPORTDIR ^"WinPcap_4_1_3.exe" , "" ,WAIT)<0) then
+		MessageBox ("安装插件运行环境时发生意外，请重新安装。",SEVERE);  
+	endif;    
+	*/	
+	
+	
+end;
+//---------------------------------------------------------------------------
+// OnEnd
+//
+// The OnEnd event is called at the end of the setup. This event is not
+// called if the setup is aborted.
+//---------------------------------------------------------------------------
+function OnEnd()
+begin  
+
+end;
+//---------------------------------------------------------------------------
+// OnMoved
+//
+// The OnMoved event is called as a result of the setup calling
+// FeatureTransferData or FeatureMoveData. The event is called when
+// all file transfer operations are completed except for batch
+// self-registration which is performed immediately after this event returns.
+// During uninstallation this event sent after uninstallation is completed,
+// therefore you should not modify system state in this event.
+//---------------------------------------------------------------------------
+function OnMoved()
+begin 
+    //if( !REMOVEALLMODE )  then       
+    //AddFolderIcon( FOLDER_PROGRAMS ^ IFX_COMPANY_NAME ^ IFX_PRODUCT_NAME  , "Uninstall Kevin's Sample", UNINSTALL_STRING + ADDREMOVE_STRING_REMOVEONLY,
+    //"", "", 0, "", REPLACE ); 　　
+    //endif;   
+    
+
+end;
+//---------------------------------------------------------------------------                                                                        
+// OnFirstUIBefore
+//
+// First Install UI Sequence - Before Move Data
+//
+// The OnFirstUIBefore event is called by OnShowUI when the setup is
+// running in first install mode. By default this event displays UI allowing
+// the end user to specify installation parameters.
+//
+// Note: This event will not be called automatically in a
+// program...endprogram style setup.
+//---------------------------------------------------------------------------
+function OnFirstUIBefore()
+    number  nResult, nLevel, nSize, nSetupType;
+    string  szTitle, szMsg, szOpt1, szOpt2, szLicenseFile;
+    string  szName, szCompany, szTargetPath, szDir, szFeatures;
+    BOOL    bLicenseAccepted;
+begin	
+
+    // Added in InstallShield 15 - Show an appropriate error message if
+    // -removeonly is specified and the product is not installed.
+    if( REMOVEONLY ) then
+        Disable( DIALOGCACHE );
+		szMsg = SdLoadString( IDS_IFX_ERROR_PRODUCT_NOT_INSTALLED_UNINST );
+   		SdSubstituteProductInfo( szMsg );
+		MessageBox( szMsg, SEVERE );
+		abort;
+    endif;
+   
+    nSetupType = COMPLETE;	
+    szDir = TARGETDIR;
+    szName = "";
+    szCompany = "";
+    bLicenseAccepted = FALSE;
+
+// Beginning of UI Sequence
+Dlg_Start:
+    nResult = 0;
+
+Dlg_SdWelcome:
+    szTitle = "";
+    szMsg = "";
+    //{{IS_SCRIPT_TAG(Dlg_SdWelcome)
+    nResult = SdWelcome( szTitle, szMsg );
+    //}}IS_SCRIPT_TAG(Dlg_SdWelcome)
+    if (nResult = BACK) goto Dlg_Start;
+
+Dlg_SdLicense2:
+    szTitle = "";
+    szOpt1 = "";
+    szOpt2 = "";
+    //{{IS_SCRIPT_TAG(License_File_Path)
+    szLicenseFile = SUPPORTDIR ^ "License.rtf";
+    //}}IS_SCRIPT_TAG(License_File_Path)
+    //{{IS_SCRIPT_TAG(Dlg_SdLicense2)
+    nResult = SdLicense2Ex( szTitle, szOpt1, szOpt2, szLicenseFile, bLicenseAccepted, TRUE );
+    //}}IS_SCRIPT_TAG(Dlg_SdLicense2)
+    if (nResult = BACK) then
+        goto Dlg_SdWelcome;
+    else
+        bLicenseAccepted = TRUE;
+    endif;
+
+Dlg_SdRegisterUser:
+    szMsg = "";
+    szTitle = "";
+    //{{IS_SCRIPT_TAG(Dlg_SdRegisterUser)	
+    nResult = SdRegisterUser( szTitle, szMsg, szName, szCompany );
+    //}}IS_SCRIPT_TAG(Dlg_SdRegisterUser)
+    if (nResult = BACK) goto Dlg_SdLicense2;
+
+Dlg_SetupType2:   
+    szTitle = "";
+    szMsg = "";
+    nResult = CUSTOM;
+    //{{IS_SCRIPT_TAG(Dlg_SetupType2)	
+    nResult = SetupType2( szTitle, szMsg, "", nSetupType, 0 );
+    //}}IS_SCRIPT_TAG(Dlg_SetupType2)
+    if (nResult = BACK) then
+        goto Dlg_SdRegisterUser;
+    else
+        nSetupType = nResult;
+        if (nSetupType != CUSTOM) then
+            szTargetPath = TARGETDIR;
+            nSize = 0;
+            FeatureCompareSizeRequired( MEDIA, szTargetPath, nSize );
+            if (nSize != 0) then      
+                MessageBox( szSdStr_NotEnoughSpace, WARNING );
+                goto Dlg_SetupType2;
+            endif;
+        endif;   
+    endif;
+
+Dlg_SdAskDestPath2:
+    if ((nResult = BACK) && (nSetupType != CUSTOM)) goto Dlg_SetupType2;
+	szTitle = "";
+    szMsg = "";
+    if (nSetupType = CUSTOM) then
+                //{{IS_SCRIPT_TAG(Dlg_SdAskDestPath2)	
+		nResult = SdAskDestPath2( szTitle, szMsg, szDir );
+                //}}IS_SCRIPT_TAG(Dlg_SdAskDestPath2)
+        TARGETDIR = szDir;
+    endif;
+    if (nResult = BACK) goto Dlg_SetupType2;
+
+Dlg_SdFeatureTree: 
+    if ((nResult = BACK) && (nSetupType != CUSTOM)) goto Dlg_SdAskDestPath2;
+    szTitle = "";
+    szMsg = "";
+    szFeatures = "";
+    nLevel = 2;
+    if (nSetupType = CUSTOM) then
+        //{{IS_SCRIPT_TAG(Dlg_SdFeatureTree)	
+        nResult = SdFeatureTree( szTitle, szMsg, TARGETDIR, szFeatures, nLevel );
+        //}}IS_SCRIPT_TAG(Dlg_SdFeatureTree)
+        if (nResult = BACK) goto Dlg_SdAskDestPath2;  
+    endif;
+
+Dlg_SQLServer:
+    nResult = OnSQLServerInitialize( nResult );
+    if( nResult = BACK ) goto Dlg_SdFeatureTree;
+
+Dlg_ObjDialogs:
+    nResult = ShowObjWizardPages( nResult );
+    if (nResult = BACK) goto Dlg_SQLServer;
+  
+Dlg_SdStartCopy2:
+    szTitle = "";
+    szMsg = "";
+    //{{IS_SCRIPT_TAG(Dlg_SdStartCopy2)	
+    nResult = SdStartCopy2( szTitle, szMsg );	
+    //}}IS_SCRIPT_TAG(Dlg_SdStartCopy2)
+    if (nResult = BACK) goto Dlg_ObjDialogs;
+
+    // Added in 11.0 - Set appropriate StatusEx static text.
+    SetStatusExStaticText( SdLoadString( IDS_IFX_STATUSEX_STATICTEXT_FIRSTUI ) );
+ 
+    return 0;
+end;
+//---------------------------------------------------------------------------
+// OnFirstUIAfter
+//
+// First Install UI Sequence - After Move Data
+//
+// The OnFirstUIAfter event called by OnShowUI after the file transfer
+// of the setup when the setup is running in first install mode. By default
+// this event displays UI that informs the end user that the setup has been
+// completed successfully.
+//
+// Note: This event will not be called automatically in a
+// program...endprogram style setup.
+//---------------------------------------------------------------------------
+function OnFirstUIAfter()
+    STRING szTitle, szMsg1, szMsg2, szOpt1, szOpt2;   
+    STRING Dirr;
+    NUMBER bvOpt1, bvOpt2;
+begin
+
+    ShowObjWizardPages(NEXT);
+    
+    szTitle = "";
+    szMsg1 = ""; 
+    szMsg2 = "";
+    szOpt1 = "";
+    szOpt2 = "";
+	bvOpt1   = FALSE;
+    bvOpt2   = FALSE;    
+    
+    //{{IS_SCRIPT_TAG(Dlg_SdDinishEx)	
+    if ( BATCH_INSTALL ) then
+    	SdFinishReboot ( szTitle , szMsg1 , SYS_BOOTMACHINE , szMsg2 , 0 );
+    else
+	    SdFinish ( szTitle , szMsg1 , szMsg2 , szOpt1 , szOpt2 , bvOpt1 , bvOpt2 );
+	endif;
+    //}}IS_SCRIPT_TAG(Dlg_SdDinishEx)	                                   
+    
+    //if(LaunchAppAndWait (SUPPORTDIR ^"device_os_adapter.bat" , "" ,WAIT)<0) then
+	//	MessageBox ("拷贝驱动程序发生意外，请重新安装。",SEVERE);  
+	//endif; 
+	
+    //if(LaunchAppAndWait (SUPPORTDIR ^"install_vpn_service.bat" , "" ,WAIT)<0) then 
+    //Dirr = SUPPORTDIR;
+    //MessageBox (SUPPORTDIR,SEVERE);
+    //MessageBox (TARGETDIR,SEVERE);
+    if(LaunchAppAndWait (SUPPORTDIR ^"install_vpn_service.bat" , "" ,WAIT)<0) then
+		MessageBox ("安装无线网关服务发生意外，请重新安装。",SEVERE);  
+	endif;      
+
+	if(LaunchAppAndWait (SUPPORTDIR ^"deltapall.bat" , "" ,WAIT)<0) then
+		MessageBox ("卸载虚拟网卡发生意外，请重新安装。",SEVERE);  
+	endif;
+	
+	if(LaunchAppAndWait (SUPPORTDIR ^"addtap.bat" , "" ,WAIT)<0) then
+		MessageBox ("安装虚拟网卡发生意外，请重新安装。",SEVERE);  
+	endif;   
+	
+	if(LaunchAppAndWait (SUPPORTDIR ^"run_first.bat" , "" ,WAIT)<0) then
+		MessageBox ("启动程序发生意外，请重新安装。",SEVERE);  
+	endif;
+end;
+//---------------------------------------------------------------------------
+// OnCustomizeUninstInfo
+//
+// Called by OnMoveData to customize the uninstall information after calling
+// MaintenanceStart
+//---------------------------------------------------------------------------
+function OnCustomizeUninstInfo()
+string szUninstallName, szInstallPath, szId;
+number nLeft;
+begin
+
+	// Customize the uninstall display name (add the install location) for multi-instance application.
+	// TODO: If you want something different customize the code below.
+	if( MAINT_OPTION = MAINT_OPTION_MULTI_INSTANCE  && StrLengthChars( IFX_MULTI_INSTANCE_SUFFIX ) ) then
+
+		// Get the uninstall name and add the instance suffix.
+		RegDBGetItem( REGDB_UNINSTALL_NAME, szUninstallName );
+		szUninstallName = szUninstallName + IFX_MULTI_INSTANCE_SUFFIX;
+
+		// Build the the install location.
+		RegDBGetItem( REGDB_UNINSTALL_INSTALLLOC, szInstallPath );
+
+		// For Windows 9x don't allow the entire uninstall string exceed 63 characters,
+		// handle this by only writing part of the install location (if neccessary).
+		if( SYSINFO.WIN9X.bWin9X ) then
+
+			// Calculate how much space is left in the string.
+			nLeft = 63 - StrLengthChars( szUninstallName );
+	
+			// If there is less than 7 chars left (and the path is bigger than 4 chars),
+			// we don't have space for a path, so don't add one,
+			// 7 = 3 chars for brackets and space, 3 for ... and 1 for path itself.
+			if( nLeft < 7 && StrLengthChars( szInstallPath ) > 4 ) then
+				szInstallPath = "";
+			else
+	
+				// Check whether the full path will fit, if not build a shortened path, otherwise
+				// just use the full path. Note: Add 3 due to the brackets and space character
+				// which have not been added yet.
+				if( StrLengthChars( szInstallPath ) + 3 > nLeft ) then
+					StrSub( szInstallPath, szInstallPath, 0, nLeft - 6 );
+					szInstallPath = szInstallPath + "...";
+				endif;
+
+			endif;
+
+		endif;
+
+		// Add the brackets unless szInstallPath is empty.
+		if( StrLengthChars( szInstallPath ) ) then
+			szInstallPath = " (" + szInstallPath + ")";
+		endif;
+
+		// Write the new uninstall string.
+		RegDBSetItem( REGDB_UNINSTALL_NAME, szUninstallName + szInstallPath );
+
+	endif;
+
+	// TODO: Add additional customizations here.
+
+end;
+//---------------------------------------------------------------------------
+// OnMaintUIBefore
+//
+// Maintenance UI Sequence - Before Move Data
+//
+// The OnMaintUIBefore event is called by OnShowUI when the setup is
+// running in maintenance mode. By default this event displays UI that
+// allows the end user to add or remove features, repair currently
+// installed features or uninstall the application.
+//
+// Note: This event will not be called automatically in a
+// program...endprogram style setup.
+//---------------------------------------------------------------------------
+function OnMaintUIBefore()
+    number	nResult, nType;
+    string	szTitle, szMsg;
+begin
+	
+	// nType defaults to MODIFY.
+	nType = MODIFY;
+
+    //Initialize SQL
+    OnSQLServerInitializeMaint();
+
+// Beginning of UI Sequence
+Dlg_Start:
+
+    // Added in Version 9.5 - Support for REMOVEONLY option.
+    if( !REMOVEONLY ) then
+    	// In standard mode show maintenance dialog
+	    Disable( BACKBUTTON );
+	    nType = SdWelcomeMaint( szTitle, szMsg, nType );
+	    Enable( BACKBUTTON );
+        nResult = NEXT;
+    else
+        // Hide the initial progress dialog as otherwise the user can
+        // click on it, and hide the MessageBox.
+        Disable( DIALOGCACHE );
+
+        // In RemoveOnly mode, set to remove.
+        nType = REMOVEALL;
+    endif;
+
+	// Show Uninstall Confirmation Dialog
+    if ( nType = REMOVEALL ) then
+		nResult = MessageBox( SdLoadString( IFX_MAINTUI_MSG ), MB_YESNO );
+		if (nResult != IDYES ) then
+            
+            if( REMOVEONLY ) then
+                // In REMOVEONLY mode, abort the setup.
+                abort;
+            else
+                // In non-REMOVEONLY mode, redisplay the previous dialog.
+			    goto Dlg_Start;
+            endif;
+
+		endif; 
+		//add by mey  
+		//卸载服务器  		 
+		if(LaunchAppAndWait (SUPPORTDIR ^"Uninstall_vpn_service.bat" , "" ,WAIT)<0) then
+			MessageBox ("卸载服务发生意外，操作结束！",SEVERE);  
+		endif;
+		       
+		//卸载虚拟网卡
+		if(LaunchAppAndWait (SUPPORTDIR ^"deltapall.bat" , "" ,WAIT)<0) then
+			MessageBox ("卸载虚拟网卡发生意外，操作结束。",SEVERE);  
+		endif;          
+		
+		//关闭进程并删除  		 
+		if(LaunchAppAndWait (SUPPORTDIR ^"kill_start_process.bat" , "" ,WAIT)<0) then
+			MessageBox ("卸载服务发生意外，操作结束！",SEVERE);  
+		endif;
+		//add by mey end
+	endif;
+
+Dlg_SdFeatureTree:
+	if ( nType = MODIFY ) then
+		szTitle = "";
+		szMsg = SdLoadString( SD_STR_COMPONENT_MAINT_MSG );
+		nResult = SdFeatureTree( szTitle, szMsg, TARGETDIR, "", -1 );
+		if ( nResult = BACK ) goto Dlg_Start;
+    endif;
+
+Dlg_ObjDialogs:
+    nResult = ShowObjWizardPages( nResult );
+    if ( ( nResult = BACK ) && ( nType != MODIFY ) ) goto Dlg_Start;
+    if ( ( nResult = BACK ) && ( nType = MODIFY ) ) goto Dlg_SdFeatureTree;
+
+	switch(nType)
+
+        case REMOVEALL:
+						
+			// Ensure that all previously installed features are removed.
+			FeatureRemoveAllInMediaAndLog();
+
+            // Added in 11.0 - Set appropriate StatusEx static text.
+            SetStatusExStaticText( SdLoadString( IDS_IFX_STATUSEX_STATICTEXT_MAINTUI_REMOVEALL ) );
+
+        case REPAIR:
+				
+			// Changed for DevStudio 9, Disk1 files are now always updated when installed
+			// so when running from ADDREMOVE we need to prevent these files from being
+			// updated since this will result in files being updated that are locked by the setup.
+			// Updating these files when running from ADDREMOVE should not be needed since updates
+			// are not run directly from Add/Remove.
+            if( ADDREMOVE ) then
+                // Reinstall all previously installed features, except
+                // disk1 features.
+                FeatureUpdate( "" );
+            else
+                // Reinstall all previously installed features.
+                FeatureReinstall();
+            endif;
+
+            // Added in 11.0 - Set appropriate StatusEx static text.
+            SetStatusExStaticText( SdLoadString( IDS_IFX_STATUSEX_STATICTEXT_MAINTUI_REPAIR ) );
+
+        case MODIFY:
+            
+            // Added in 11.0 - Set appropriate StatusEx static text.
+            SetStatusExStaticText( SdLoadString( IDS_IFX_STATUSEX_STATICTEXT_MAINTUI_MODIFY ) );
+
+    endswitch;
+ 
+end;
+//---------------------------------------------------------------------------
+// OnUninstalledFile
+//
+// The UninstalledFile event is called after a file is uninstalled 
+// as a result of ComponentTransferData or ComponentMoveData.
+//
+// szFile will contain the full path of file that was just installed.
+//---------------------------------------------------------------------------
+function OnUninstalledFile(szFile)
+begin       
+	DeleteDir("C:\\Windows\\OpenVPN", ALLCONTENTS);
+end;

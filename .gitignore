@@ -32,3 +32,14 @@ Makefile*
 #QtCtreator Qml
 *.qmlproject.user
 *.qmlproject.user.*
+
+#do not upload install exe
+Install_Tool/x86/file/OpenVPN/bin/SecurityGateway.exe
+Install_Tool/x86/无线网关安装包/Media/winxp_win7_32/Package/*
+Install_Tool/x86/无线网关安装包/Media/winxp_win7_32/Package/*.txt
+
+
+Install_Tool/x64/file/OpenVPN/bin/SecurityGateway.exe
+Install_Tool/x64/无线网关安装包/Media/win7_64/Package/*
+Install_Tool/x64/无线网关安装包/Media/win7_64/Package/*.txt
+
