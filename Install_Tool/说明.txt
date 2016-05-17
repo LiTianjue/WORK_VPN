@@ -1,0 +1,31 @@
+服务器测试和证书下载在有的机器上不能正常执行，恢复runtime插件，
+
+2015-07-07		LiTianjue	添加忘记证书按钮，配置文件不存在从模板创建，
+
+2015-07-07		LiTianjue	点击启动按钮会先检查ca.crt和ta.key文件是否存在
+
+2015-07-07		LiTianjue	修改MyGet.exe下载配置文件，重新读取修改，版本升级为2.1
+
+2015-07-20		LiTianjue	适配win8平板高分辨率屏幕
+
+2015-07-20		LiTianjue	去除openvpn相关的信息
+
+2015-08-12		LiTianjue	为了检测去除版本号
+
+2015-08-16		LiTiabjue	为了检测加上usbkey加解密程序,
+					改动文件，QT主程序添加程序启动
+                                                  安装包添加usb_key 加密程序 ssl_vpn.exe
+						  安装包添加网络抓包库winpcap
+		 			          kill_openvpn.bat添加ssl_vpn.exe
+
+2015-8-24		LiTianjue      修改客户端，只有连接上才显示版本号
+
+
+2015-12-14		LiTianjue       修改客户端使用双证书，版本号未定义，修改证书选择Select_Cert，修改配置文件m_Conf.ini
+
+
+2015-12-28		LiTianjue	为了保持和android客户端一致，新增版本号，版本升级，协议类型由tcp改为http，增加对已下载的文件做md5计算和校验，通讯内容的协议格式改为json，版本号改为2.4.0.0
+
+2016-04-06		LiTianjue	修复IE浏览器代理问题
+
+2016-05-16		LiTianjue	为北京边检总队项目做VPN定制开发，主要是增加代理和按钮，部分配置信息要求写死
