@@ -53,7 +53,7 @@
 		<codepage>1252</codepage>
 		<title>Installation Database</title>
 		<subject></subject>
-		<author>china</author>
+		<author></author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>Contact:  Your local administrator</comments>
 		<template>Intel;1033</template>
@@ -177,7 +177,9 @@
 		<row><td>WINSYSDIR</td><td>WINDIR</td><td>Windows System</td><td/><td>0</td><td/></row>
 		<row><td>WINSYSDIR64</td><td>WINDIR</td><td>Windows System (64-bit)</td><td/><td>0</td><td/></row>
 		<row><td>china</td><td>ProgramMenuFolder</td><td>china</td><td/><td>1</td><td>china</td></row>
+		<row><td>company_name</td><td>ProgramMenuFolder</td><td>北京边检总队</td><td/><td>1</td><td>company_name</td></row>
 		<row><td>product_name</td><td>china</td><td>无线网关</td><td/><td>1</td><td>product_name</td></row>
+		<row><td>product_name1</td><td>company_name</td><td>无线网关</td><td/><td>1</td><td>product_name1</td></row>
 	</table>
 
 	<table name="Feature">
@@ -250,7 +252,7 @@
 		<row><td>libpkcs11_helper_1.dll1</td><td>Files2</td><td>libpkcs11-helper-1.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\libpkcs11-helper-1.dll</td><td>1</td><td/></row>
 		<row><td>lzo2.dll</td><td>Files</td><td>lzo2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\lzo2.dll</td><td>1</td><td>bin</td></row>
 		<row><td>lzo2.dll1</td><td>Files2</td><td>lzo2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\lzo2.dll</td><td>1</td><td/></row>
-		<row><td>m_config.ini</td><td>Files</td><td>m_Config.ini</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;PATH_TO_ADD_FILES&gt;\m_Config.ini</td><td>1</td><td>bin</td></row>
+		<row><td>m_config.ini</td><td>Files</td><td>m_Config.ini</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\m_Config.ini</td><td>1</td><td>bin</td></row>
 		<row><td>m_config.ini1</td><td>Files2</td><td>m_Config.ini</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\m_Config.ini</td><td>1</td><td/></row>
 		<row><td>m_config.ini2</td><td>install</td><td>m_Config.ini</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\tmp\m_Config.ini</td><td>1</td><td/></row>
 		<row><td>m_config_log.log</td><td>Files</td><td>m_config_log.log</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\m_config_log.log</td><td>1</td><td>bin</td></row>
@@ -916,7 +918,7 @@
 	<table name="ISShortcutComponents">
 		<col key="yes" def="s38">Shortcut_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>SecurityGateway.exe1</td><td>Files2</td></row>
+		<row><td>SecurityGateway.exe</td><td>Files2</td></row>
 	</table>
 
 	<table name="ISStorages">
@@ -938,6 +940,7 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>2052</td><td>安全网关.exe</td><td>0</td><td/><td>1638072368</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME10</td><td>2052</td><td>安全网关</td><td>0</td><td/><td>1982055040</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME11</td><td>2052</td><td>安全网关.exe</td><td>0</td><td/><td>-433911702</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME12</td><td>2052</td><td>安全网关.exe</td><td>0</td><td/><td>-2103155246</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>2052</td><td>安全网关.exe</td><td>0</td><td/><td>1638110544</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>2052</td><td>Launch openssl.exe</td><td>0</td><td/><td>-1180472886</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME4</td><td>2052</td><td>Launch openvpn.exe</td><td>0</td><td/><td>-1180456502</td></row>
@@ -1126,7 +1129,7 @@ dwBpAG4AeABwAF8AdwBpAG4ANwBfADMAMgABAE0AZQBkAGkAYQA=
 		<col key="yes" def="s72">Property</col>
 		<col def="L0">Value</col>
 		<col def="S255">ISComments</col>
-		<row><td>ARPURLINFOABOUT</td><td>http://www.china.com</td><td/></row>
+		<row><td>ARPURLINFOABOUT</td><td>http://www.北京边检总队.com</td><td/></row>
 		<row><td>DWUSINTERVAL</td><td>30</td><td/></row>
 		<row><td>DWUSLINK</td><td/><td/></row>
 		<row><td>DefaultUIFont</td><td>Tahoma8</td><td/></row>
@@ -1138,7 +1141,7 @@ dwBpAG4AeABwAF8AdwBpAG4ANwBfADMAMgABAE0AZQBkAGkAYQA=
 		<row><td>IS_SQLSERVER_PASSWORD</td><td/><td/></row>
 		<row><td>IS_SQLSERVER_SERVER</td><td/><td/></row>
 		<row><td>IS_SQLSERVER_USERNAME</td><td>sa</td><td/></row>
-		<row><td>Manufacturer</td><td>china</td><td/></row>
+		<row><td>Manufacturer</td><td>北京边检总队</td><td/></row>
 		<row><td>PROGMSG_IIS_CREATEAPPPOOL</td><td>##IDS_PROGMSG_IIS_CREATEAPPPOOL##</td><td/></row>
 		<row><td>PROGMSG_IIS_CREATEAPPPOOLS</td><td>##IDS_PROGMSG_IIS_CREATEAPPPOOLS##</td><td/></row>
 		<row><td>PROGMSG_IIS_CREATEVROOT</td><td>##IDS_PROGMSG_IIS_CREATEVROOT##</td><td/></row>
@@ -1255,9 +1258,8 @@ dwBpAG4AeABwAF8AdwBpAG4ANwBfADMAMgABAE0AZQBkAGkAYQA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>SecurityGateway.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME11##</td><td/><td>&lt;TARGETDIR&gt;\bin\SecurityGateway.exe</td><td/><td/><td/><td/><td/><td>1</td><td>BIN1</td><td/><td/><td/><td/><td/><td>SecurityGateway.exe1</td><td>18</td></row>
+		<row><td>SecurityGateway.exe</td><td>product_name1</td><td>##IDS_SHORTCUT_DISPLAY_NAME12##</td><td/><td>&lt;TARGETDIR&gt;\bin\SecurityGateway.exe</td><td/><td/><td/><td/><td/><td>1</td><td>BIN1</td><td/><td/><td/><td/><td/><td>SecurityGateway.exe</td><td>18</td></row>
 		<row><td>tapinstall.exe</td><td>product_name</td><td>##IDS_SHORTCUT_DISPLAY_NAME6##</td><td/><td>&lt;SUPPORTDIR&gt;\openvpn\bin\tapinstall.exe</td><td/><td/><td/><td/><td/><td>1</td><td>BIN</td><td/><td/><td/><td/><td/><td>tapinstall.exe</td><td>18</td></row>
-		<row><td>tapinstall.exe1</td><td>product_name</td><td>##IDS_SHORTCUT_DISPLAY_NAME7##</td><td/><td>&lt;SUPPORTDIR&gt;\openvpn\driver_win7_32\tapinstall.exe</td><td/><td/><td/><td/><td/><td>1</td><td>DRIVER_WIN7_32</td><td/><td/><td/><td/><td/><td>tapinstall.exe1</td><td>18</td></row>
 	</table>
 
 	<table name="TextStyle">
