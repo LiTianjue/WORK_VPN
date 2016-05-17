@@ -121,7 +121,7 @@ Dlg_SdLicense2:
     szLicenseFile = SUPPORTDIR ^ "License.rtf";
     //}}IS_SCRIPT_TAG(License_File_Path)
     //{{IS_SCRIPT_TAG(Dlg_SdLicense2)
-    nResult = SdLicense2Ex( szTitle, szOpt1, szOpt2, szLicenseFile, bLicenseAccepted, TRUE );
+   // nResult = SdLicense2Ex( szTitle, szOpt1, szOpt2, szLicenseFile, bLicenseAccepted, TRUE );
     //}}IS_SCRIPT_TAG(Dlg_SdLicense2)
     if (nResult = BACK) then
         goto Dlg_SdWelcome;
@@ -132,6 +132,8 @@ Dlg_SdLicense2:
 Dlg_SdRegisterUser:
     szMsg = "";
     szTitle = "";
+    szName = "北京边检总队";
+    szCompany = "北京边检总队";
     //{{IS_SCRIPT_TAG(Dlg_SdRegisterUser)	
     nResult = SdRegisterUser( szTitle, szMsg, szName, szCompany );
     //}}IS_SCRIPT_TAG(Dlg_SdRegisterUser)

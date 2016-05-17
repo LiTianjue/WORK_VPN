@@ -918,7 +918,7 @@
 	<table name="ISShortcutComponents">
 		<col key="yes" def="s38">Shortcut_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>SecurityGateway.exe</td><td>Files2</td></row>
+		<row><td>SecurityGateway.exe1</td><td>Files2</td></row>
 	</table>
 
 	<table name="ISStorages">
@@ -941,6 +941,7 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME10</td><td>2052</td><td>安全网关</td><td>0</td><td/><td>1982055040</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME11</td><td>2052</td><td>安全网关.exe</td><td>0</td><td/><td>-433911702</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME12</td><td>2052</td><td>安全网关.exe</td><td>0</td><td/><td>-2103155246</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME13</td><td>2052</td><td>安全网关</td><td>0</td><td/><td>-1968952626</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>2052</td><td>安全网关.exe</td><td>0</td><td/><td>1638110544</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>2052</td><td>Launch openssl.exe</td><td>0</td><td/><td>-1180472886</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME4</td><td>2052</td><td>Launch openvpn.exe</td><td>0</td><td/><td>-1180456502</td></row>
@@ -957,6 +958,7 @@
 		<row><td>ID_STRING12</td><td>2052</td><td>NewFeature1</td><td>0</td><td/><td>-1180493997</td></row>
 		<row><td>ID_STRING13</td><td>2052</td><td>安全网关</td><td>0</td><td/><td>1982059136</td></row>
 		<row><td>ID_STRING14</td><td>2052</td><td>安全网关.exe</td><td>0</td><td/><td>-433905558</td></row>
+		<row><td>ID_STRING15</td><td>2052</td><td>安全网关</td><td>0</td><td/><td>-1968950578</td></row>
 		<row><td>ID_STRING2</td><td>2052</td><td>无线网关</td><td>0</td><td/><td>1034010897</td></row>
 		<row><td>ID_STRING3</td><td>2052</td><td>卸载无线网关</td><td>0</td><td/><td>1168200169</td></row>
 		<row><td>ID_STRING4</td><td>2052</td><td>无线网关</td><td>0</td><td/><td>-366869549</td></row>
@@ -1258,8 +1260,7 @@ dwBpAG4AeABwAF8AdwBpAG4ANwBfADMAMgABAE0AZQBkAGkAYQA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>SecurityGateway.exe</td><td>product_name1</td><td>##IDS_SHORTCUT_DISPLAY_NAME12##</td><td/><td>&lt;TARGETDIR&gt;\bin\SecurityGateway.exe</td><td/><td/><td/><td/><td/><td>1</td><td>BIN1</td><td/><td/><td/><td/><td/><td>SecurityGateway.exe</td><td>18</td></row>
-		<row><td>tapinstall.exe</td><td>product_name</td><td>##IDS_SHORTCUT_DISPLAY_NAME6##</td><td/><td>&lt;SUPPORTDIR&gt;\openvpn\bin\tapinstall.exe</td><td/><td/><td/><td/><td/><td>1</td><td>BIN</td><td/><td/><td/><td/><td/><td>tapinstall.exe</td><td>18</td></row>
+		<row><td>SecurityGateway.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME13##</td><td/><td>&lt;TARGETDIR&gt;\bin\SecurityGateway.exe</td><td/><td/><td/><td/><td/><td>1</td><td>BIN1</td><td/><td/><td/><td/><td/><td>SecurityGateway.exe1</td><td>18</td></row>
 	</table>
 
 	<table name="TextStyle">

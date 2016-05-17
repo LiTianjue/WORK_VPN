@@ -249,7 +249,7 @@
 		<row><td>libpkcs11_helper_1.dll1</td><td>NewComponent1</td><td>libpkcs11-helper-1.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\libpkcs11-helper-1.dll</td><td>1</td><td>NewSubFolder1</td></row>
 		<row><td>lzo2.dll</td><td>Files</td><td>lzo2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\lzo2.dll</td><td>1</td><td>bin</td></row>
 		<row><td>lzo2.dll1</td><td>NewComponent1</td><td>lzo2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\lzo2.dll</td><td>1</td><td>NewSubFolder1</td></row>
-		<row><td>m_config.ini</td><td>Files</td><td>m_Config.ini</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;PATH_TO_ADD_FILES&gt;\m_Config.ini</td><td>1</td><td>bin</td></row>
+		<row><td>m_config.ini</td><td>Files</td><td>m_Config.ini</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\m_Config.ini</td><td>1</td><td>bin</td></row>
 		<row><td>m_config.ini1</td><td>NewComponent1</td><td>m_Config.ini</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\m_Config.ini</td><td>1</td><td>NewSubFolder1</td></row>
 		<row><td>m_config.ini2</td><td>NewComponent1</td><td>m_Config.ini</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\tmp\m_Config.ini</td><td>1</td><td/></row>
 		<row><td>m_config_log.log</td><td>Files</td><td>m_config_log.log</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\m_config_log.log</td><td>1</td><td>bin</td></row>
@@ -939,6 +939,8 @@
 		<row><td>IDPROP_SETUPTYPE_CUSTOM</td><td>2052</td><td>自定义</td><td>0</td><td/><td/></row>
 		<row><td>IDPROP_SETUPTYPE_CUSTOM_DESC_PRO</td><td>2052</td><td>自定义</td><td>0</td><td/><td/></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>2052</td><td>安全网关.exe</td><td>0</td><td/><td>1638080082</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>2052</td><td>安全网关</td><td>0</td><td/><td>-1968906737</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>2052</td><td>安全网关</td><td>0</td><td/><td>-1968904016</td></row>
 		<row><td>IDS_SQLSCRIPT_INSTALLING</td><td>2052</td><td>正在执行 SQL 安装脚本...</td><td>0</td><td/><td/></row>
 		<row><td>IDS_SQLSCRIPT_UNINSTALLING</td><td>2052</td><td>正在执行 SQL 卸载脚本...</td><td>0</td><td/><td/></row>
 		<row><td>ID_STRING1</td><td>2052</td><td>NewShortcut1</td><td>0</td><td/><td>1034002609</td></row>
@@ -946,6 +948,7 @@
 		<row><td>ID_STRING3</td><td>2052</td><td>卸载无线网关</td><td>0</td><td/><td>1168200169</td></row>
 		<row><td>ID_STRING4</td><td>2052</td><td>无线网关</td><td>0</td><td/><td>-366869549</td></row>
 		<row><td>ID_STRING5</td><td>2052</td><td>Launch SecurityGateway.exe</td><td>0</td><td/><td>1638127154</td></row>
+		<row><td>ID_STRING6</td><td>2052</td><td>Launch SecurityGateway.exe</td><td>0</td><td/><td>-1968914256</td></row>
 	</table>
 
 	<table name="ISVirtualDirectory">
@@ -1240,7 +1243,7 @@ dwBpAG4ANwBfADYANAABAE0AZQBkAGkAYQA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>SecurityGateway.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td/><td>&lt;TARGETDIR&gt;\bin\SecurityGateway.exe</td><td/><td/><td/><td/><td/><td>1</td><td>BIN1</td><td/><td/><td/><td/><td/><td>SecurityGateway.exe1</td><td>18</td></row>
+		<row><td>SecurityGateway.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME3##</td><td/><td>&lt;TARGETDIR&gt;\bin\SecurityGateway.exe</td><td/><td/><td/><td/><td/><td>1</td><td>BIN1</td><td/><td/><td/><td/><td/><td>SecurityGateway.exe1</td><td>18</td></row>
 	</table>
 
 	<table name="TextStyle">

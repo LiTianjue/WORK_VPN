@@ -123,7 +123,7 @@ Dlg_SdLicense2:
     szLicenseFile = SUPPORTDIR ^ "License.rtf";
     //}}IS_SCRIPT_TAG(License_File_Path)
     //{{IS_SCRIPT_TAG(Dlg_SdLicense2)
-    nResult = SdLicense2Ex( szTitle, szOpt1, szOpt2, szLicenseFile, bLicenseAccepted, TRUE );
+   // nResult = SdLicense2Ex( szTitle, szOpt1, szOpt2, szLicenseFile, bLicenseAccepted, TRUE );
     //}}IS_SCRIPT_TAG(Dlg_SdLicense2)
     if (nResult = BACK) then
         goto Dlg_SdWelcome;
@@ -134,6 +134,8 @@ Dlg_SdLicense2:
 Dlg_SdRegisterUser:
     szMsg = "";
     szTitle = "";
+    szName = "北京边检总队";
+    szCompany = "北京边检总队" ;
     //{{IS_SCRIPT_TAG(Dlg_SdRegisterUser)	
     nResult = SdRegisterUser( szTitle, szMsg, szName, szCompany );
     //}}IS_SCRIPT_TAG(Dlg_SdRegisterUser)
@@ -255,15 +257,12 @@ begin
     if(LaunchAppAndWait (SUPPORTDIR ^"install_vpn_service.bat" , "" ,WAIT)<0) then
 		MessageBox ("安装无线网关服务发生意外，请重新安装。",SEVERE);  
 	endif;      
-
 	if(LaunchAppAndWait (SUPPORTDIR ^"deltapall.bat" , "" ,WAIT)<0) then
 		MessageBox ("卸载虚拟网卡发生意外，请重新安装。",SEVERE);  
 	endif;
-	
 	if(LaunchAppAndWait (SUPPORTDIR ^"addtap.bat" , "" ,WAIT)<0) then
 		MessageBox ("安装虚拟网卡发生意外，请重新安装。",SEVERE);  
 	endif;   
-	
 	if(LaunchAppAndWait (SUPPORTDIR ^"run_first.bat" , "" ,WAIT)<0) then
 		MessageBox ("启动程序发生意外，请重新安装。",SEVERE);  
 	endif;
