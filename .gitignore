@@ -7,7 +7,7 @@
 *.la
 *.lai
 *.so
-*.dll
+#*.dll
 *.dylib
 
 # Qt-es
@@ -32,6 +32,8 @@ Makefile*
 #QtCtreator Qml
 *.qmlproject.user
 *.qmlproject.user.*
+
+
 
 #do not upload install exe
 Install_Tool/x86/file/OpenVPN/bin/SecurityGateway.exe
