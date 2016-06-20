@@ -106,7 +106,7 @@
 		<row><td>Files</td><td>{17F0D17A-F723-41A3-88DC-E212D24CB0DB}</td><td>TARGETDIR</td><td>0</td><td/><td>uninstall.exe</td><td>51729</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Files1</td><td>{BB2455AD-92D4-4634-9462-623AA6A8CF42}</td><td>SYSTEM32</td><td>0</td><td/><td>framedyn.dll</td><td>51729</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Files2</td><td>{40ACCB92-D5FB-4FA0-B136-81E868EB4BAB}</td><td>CONFIG1</td><td>0</td><td/><td>client.ovpn</td><td>51729</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Files3</td><td>{474C2DF5-33BD-4910-BE26-26566F72F95F}</td><td>BIN1</td><td>0</td><td/><td>sslvpncert.ico</td><td>51729</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Files3</td><td>{474C2DF5-33BD-4910-BE26-26566F72F95F}</td><td>BIN1</td><td>0</td><td/><td>securitygateway.exe2</td><td>51729</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>NewComponent1</td><td>{97484C9A-038F-455A-9F06-9E5C4BABA32D}</td><td>SUPPORTDIR</td><td>0</td><td/><td/><td>51729</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
@@ -249,7 +249,7 @@
 		<row><td>libpkcs11_helper_1.dll1</td><td>NewComponent1</td><td>libpkcs11-helper-1.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\libpkcs11-helper-1.dll</td><td>1</td><td>NewSubFolder1</td></row>
 		<row><td>lzo2.dll</td><td>Files</td><td>lzo2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\lzo2.dll</td><td>1</td><td>bin</td></row>
 		<row><td>lzo2.dll1</td><td>NewComponent1</td><td>lzo2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\lzo2.dll</td><td>1</td><td>NewSubFolder1</td></row>
-		<row><td>m_config.ini</td><td>Files</td><td>m_Config.ini</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;PATH_TO_ADD_FILES&gt;\m_Config.ini</td><td>1</td><td>bin</td></row>
+		<row><td>m_config.ini</td><td>Files</td><td>m_Config.ini</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\m_Config.ini</td><td>1</td><td>bin</td></row>
 		<row><td>m_config.ini1</td><td>NewComponent1</td><td>m_Config.ini</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\m_Config.ini</td><td>1</td><td>NewSubFolder1</td></row>
 		<row><td>m_config.ini2</td><td>NewComponent1</td><td>m_Config.ini</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\tmp\m_Config.ini</td><td>1</td><td/></row>
 		<row><td>m_config_log.log</td><td>Files</td><td>m_config_log.log</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\m_config_log.log</td><td>1</td><td>bin</td></row>
@@ -296,6 +296,7 @@
 		<row><td>sdkeyfun.dll1</td><td>NewComponent1</td><td>sdkeyfun.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\sdkeyfun.dll</td><td>1</td><td>NewSubFolder1</td></row>
 		<row><td>securitygateway.exe</td><td>Files</td><td>SecurityGateway.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGateway.exe</td><td>1</td><td>bin</td></row>
 		<row><td>securitygateway.exe1</td><td>NewComponent1</td><td>SecurityGateway.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGateway.exe</td><td>1</td><td>NewSubFolder1</td></row>
+		<row><td>securitygateway.exe2</td><td>Files3</td><td>SecurityGateway.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGateway.exe</td><td>1</td><td/></row>
 		<row><td>select_cert.exe</td><td>Files</td><td>Select_Cert.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\Select_Cert.exe</td><td>1</td><td>bin</td></row>
 		<row><td>select_cert.exe1</td><td>NewComponent1</td><td>Select_Cert.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\Select_Cert.exe</td><td>1</td><td>NewSubFolder1</td></row>
 		<row><td>setproxy.exe</td><td>Files</td><td>SETPROXY.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SETPROXY.exe</td><td>1</td><td>bin</td></row>
@@ -591,6 +592,7 @@
 		<row><td>ISProjectFolder</td><td/><td/><td>1</td></row>
 		<row><td>PATH_TO_ADD_FILES</td><td>D:\VPN打包\安装包修改_12-14\add</td><td/><td>2</td></row>
 		<row><td>PATH_TO_BIN_FILES</td><td>D:\sslvpn\安装包修改_07-20\无线网关安装包_new\file\OpenVPN\bin</td><td/><td>2</td></row>
+		<row><td>PATH_TO_RELEASE_FILES</td><td>D:\gitspace\work\WORK_VPN\build-SecurityGateway-static_5_3-Release\release</td><td/><td>2</td></row>
 		<row><td>ProgramFilesFolder</td><td/><td/><td>1</td></row>
 		<row><td>SystemFolder</td><td/><td/><td>1</td></row>
 		<row><td>WindowsFolder</td><td/><td/><td>1</td></row>
@@ -919,7 +921,7 @@
 	<table name="ISShortcutComponents">
 		<col key="yes" def="s38">Shortcut_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>SecurityGateway.exe1</td><td>Files</td></row>
+		<row><td>SecurityGateway.exe1</td><td>Files3</td></row>
 	</table>
 
 	<table name="ISStorages">
@@ -939,6 +941,7 @@
 		<row><td>IDPROP_SETUPTYPE_CUSTOM</td><td>2052</td><td>自定义</td><td>0</td><td/><td/></row>
 		<row><td>IDPROP_SETUPTYPE_CUSTOM_DESC_PRO</td><td>2052</td><td>自定义</td><td>0</td><td/><td/></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>2052</td><td>安全网关.exe</td><td>0</td><td/><td>1638080082</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>2052</td><td>安全网关</td><td>0</td><td/><td>-1557906192</td></row>
 		<row><td>IDS_SQLSCRIPT_INSTALLING</td><td>2052</td><td>正在执行 SQL 安装脚本...</td><td>0</td><td/><td/></row>
 		<row><td>IDS_SQLSCRIPT_UNINSTALLING</td><td>2052</td><td>正在执行 SQL 卸载脚本...</td><td>0</td><td/><td/></row>
 		<row><td>ID_STRING1</td><td>2052</td><td>NewShortcut1</td><td>0</td><td/><td>1034002609</td></row>
@@ -946,6 +949,7 @@
 		<row><td>ID_STRING3</td><td>2052</td><td>卸载无线网关</td><td>0</td><td/><td>1168200169</td></row>
 		<row><td>ID_STRING4</td><td>2052</td><td>无线网关</td><td>0</td><td/><td>-366869549</td></row>
 		<row><td>ID_STRING5</td><td>2052</td><td>Launch SecurityGateway.exe</td><td>0</td><td/><td>1638127154</td></row>
+		<row><td>ID_STRING6</td><td>2052</td><td>安全网关</td><td>0</td><td/><td>-1557904144</td></row>
 	</table>
 
 	<table name="ISVirtualDirectory">
@@ -1240,7 +1244,7 @@ dwBpAG4ANwBfADYANAABAE0AZQBkAGkAYQA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>SecurityGateway.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td/><td>&lt;TARGETDIR&gt;\bin\SecurityGateway.exe</td><td/><td/><td/><td/><td/><td>1</td><td>BIN1</td><td/><td/><td/><td/><td/><td>SecurityGateway.exe1</td><td>18</td></row>
+		<row><td>SecurityGateway.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME2##</td><td/><td>&lt;TARGETDIR&gt;\bin\SecurityGateway.exe</td><td/><td/><td/><td/><td/><td>1</td><td>BIN1</td><td/><td/><td/><td/><td/><td>SecurityGateway.exe1</td><td>18</td></row>
 	</table>
 
 	<table name="TextStyle">
