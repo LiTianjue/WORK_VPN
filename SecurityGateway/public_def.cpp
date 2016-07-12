@@ -234,6 +234,10 @@ QString VpnParams::Translate_line(QString msg)
     {
         ChangeStatus(VPN_RECONNECTING);
         rtString = "重新连接...";
+    }else if(msg.contains("certificate is not yet valid") || msg.contains("certificate is not yet valid"))
+    {
+        ChangeStatus(VPN_DISCONNECT);
+        rtString= "证书过期或证书未生效，请检查系统时间!";
     }
 
     return rtString;
