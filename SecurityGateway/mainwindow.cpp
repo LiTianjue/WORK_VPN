@@ -727,11 +727,12 @@ bool MainWindow::per_connect()
     /***********************************************/
     qDebug()<<"选择证书："<<prop;
     //[2] 读取der编码的证书文件
-   int  c_len = use_cryptoAPI_cert(&c_data,prop.toStdString().c_str());
+   //int  c_len = use_cryptoAPI_cert(&c_data,prop.toStdString().c_str());
+   int  c_len = use_cryptoAPI_cert_with_pin(&c_data,prop.toStdString().c_str(),1);
    if(c_len <= 0)
    {
        qDebug()<< "获取证书失败";
-       printMessage("获取用户信息失败");
+       printMessage("获取用户信息失败 "+QString::number(c_len,10));
        //down->err_string = "获取用户信息失败";
        return false;
    }
@@ -1822,6 +1823,13 @@ bool MainWindow::nativeEvent(const QByteArray &eventType, void *message, long *r
                     qDebug() << "USB KEY 移除";
                     StopVpn();
                     printMessage("加密设备被移除");
+                }
+                else if(strname.contains(("DISK")) ||
+                        strname.contains("disk") ||
+                        strname.contains("Disk"))
+                {
+                    StopVpn();
+                    printMessage("存储设备或加密TF卡被移除（安全网关运行时不要插拔存储设备）");
                 }
 
             }
