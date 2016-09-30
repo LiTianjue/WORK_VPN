@@ -1,6 +1,8 @@
 #include "managerserver.h"
 #include <QTcpSocket>
 #include <QString>
+
+#ifdef MANAGMENT
 MultiClientServer::MultiClientServer()
 {
     connect(this, SIGNAL(newConnection()), this, SLOT(handleNewConnection()));
@@ -120,3 +122,7 @@ void MultiClientServer::HandleMsg(QByteArray msg, QTcpSocket *client)
         client->write(rtMsg.toLatin1());
 
 }
+
+
+
+#endif /*END MANAGMENT*/
