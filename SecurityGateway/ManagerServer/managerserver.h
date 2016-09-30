@@ -1,7 +1,6 @@
 #ifndef MULTICLIENTSERVER_H
 #define MULTICLIENTSERVER_H
 
-#ifdef MANAGMENT
 #include <QTcpServer>
 #include "mainwindow.h"
 
@@ -35,8 +34,5 @@ public:
 private:
     void HandleMsg(QByteArray msg ,QTcpSocket *client);
 };
-#endif  /*END MANAGMENT*/
-
-
 
 #endif // MULTICLIENTSERVER_H
