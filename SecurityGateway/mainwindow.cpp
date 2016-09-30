@@ -1947,6 +1947,7 @@ bool MainWindow::cmd_perconnect()
     vpn_params->setStatus("IP_Mask","");
 
     //记住证书序列号？
+    ui->checkBox_thumb->setChecked(true);
     Con_Ini->setValue("common/thumb","");
     Con_Ini->setValue("common/remember_thumb","yes");
     vpn_params->remember_thumb = true;
