@@ -120,7 +120,7 @@ private:
 
  //add by andy 2015-12-02 增加证书验证和配置下载
      CDOWN_CONF *down;
-     bool per_connect();
+     bool per_connect(int pwd);
   //add by andy 20115-12-03 增加一个类保装参数
      VpnParams *vpn_params;
      //void set_vpn_params();
@@ -133,6 +133,16 @@ private :
     void ReConfigOvpn(QString ofile);
 
     void StopVpn();
+#ifdef MANAGMENT
+//add for cmd mod
+ public:
+    QString     cmd_log();              //打出日志信息，未晚上
+    bool        cmd_perconnect();       //检查是否可以建立连接
+    void        cmd_exit();             //管理服务退出
+    void        cmd_start();            //启动拨号
+    void        cmd_stop();             //断开拨号
+    QString     cmd_satus();            //获取拨号状态
+#endif  /*END MANAGMENT*/
 };
 
 #endif // MAINWINDOW_H

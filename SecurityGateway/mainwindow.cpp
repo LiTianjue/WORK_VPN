@@ -114,7 +114,11 @@ MainWindow::MainWindow(QWidget *parent) :
     createAction();
     createTrayIcon();
     setIcon();
+#ifdef MANAGMENT
+    trayIcon->hide();
+#else
     trayIcon->show();
+#endif   /*hide taryIcon if MANAGMENT*/
 
     //设置ip和端口号的校验
     QRegExp ipRe("((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-4]|[01]?\\d\\d?)");
@@ -606,7 +610,7 @@ void MainWindow::ProxySetting()
     delete reg;
 }
 
-bool MainWindow::per_connect()
+bool MainWindow::per_connect(int pwd)
 {
     printMessage("检查客户端版本...");
     printMessage("当前版本："+vpn_params->current_version);
@@ -728,10 +732,10 @@ bool MainWindow::per_connect()
     qDebug()<<"选择证书："<<prop;
     //[2] 读取der编码的证书文件
    //int  c_len = use_cryptoAPI_cert(&c_data,prop.toStdString().c_str());
-   int  c_len = use_cryptoAPI_cert_with_pin(&c_data,prop.toStdString().c_str(),1);
+   int  c_len = use_cryptoAPI_cert_with_pin(&c_data,prop.toStdString().c_str(),pwd);
    if(c_len <= 0)
    {
-       qDebug()<< "获取证书失败";
+       qDebug()<< "获取证书失败"+QString::number(c_len,10);
        printMessage("获取用户信息失败 "+QString::number(c_len,10));
        //down->err_string = "获取用户信息失败";
        return false;
@@ -1385,8 +1389,11 @@ void MainWindow::on_pushButton_Login_clicked()
     // 上传验证签名证书，下载配置信息及策略
     down->err_string.clear();
     //显示连接过程中的信息
-
-    if(!per_connect())
+#ifdef MANAGMENT
+    if(!per_connect(0))
+#else
+    if(!per_connect(1))
+#endif /*if MANAGMENT ,do not input pin again*/
     {
         //qDebug()<<"配置安全参数失败:" << down->err_string;
         //printMessage("配置安全参数失败："+down->err_string);
@@ -1915,6 +1922,113 @@ void MainWindow::StopVpn()
     vpn_params->ChangeStatus(VPN_DISCONNECT);
     WatchOpenVPNProcess();
 }
+
+
+
+#ifdef MANAGMENT
+QString MainWindow::cmd_log()
+{
+  QTextDocument *doc =  ui->textBrowser->document();
+  QString log_text = doc->toPlainText();
+  return log_text;
+}
+
+bool MainWindow::cmd_perconnect()
+{
+    //初始化参数
+    vpn_params->Status_map.clear();
+    //从界面上获取信息
+    vpn_params->setStatus("server_ip",ui->lineEdit_server_ip->text());
+    vpn_params->setStatus("server_port",ui->lineEdit_server_port->text());
+    vpn_params->setStatus("verify_port",ui->lineEdit_strategy_port->text());
+    vpn_params->setStatus("proto",ui->ProtoBox->currentText());
+    //初始化虚拟ip
+    vpn_params->setStatus("IP","");
+    vpn_params->setStatus("IP_Mask","");
+
+    //记住证书序列号？
+    Con_Ini->setValue("common/thumb","");
+    Con_Ini->setValue("common/remember_thumb","yes");
+    vpn_params->remember_thumb = true;
+    if(vpn_params->remember_thumb)
+        //vpn_params->setStatus("thumb",vpn_params->thumb);
+        vpn_params->setStatus("thumb","");
+
+
+    QString version = myHelper::RunCmd(vpn_params->exe + " --version");
+    version =  version.split(" ")[1];
+    vpn_params->exe_version = version;
+    qDebug() << "Version " << version;
+
+    QString current_path = vpn_params->work_path;
+
+    vpn_params->setStatus("key",current_path+"/client.key");
+    vpn_params->setStatus("crt",current_path+"/client.crt");
+    vpn_params->setStatus("ca",current_path+"/ca.crt");
+    vpn_params->setStatus("config",current_path+"/client.ovpn");
+
+    vpn_params->setStatus("key_md5",myHelper::GetFileMD5(current_path+"/client.key"));
+    vpn_params->setStatus("crt_md5",myHelper::GetFileMD5(current_path+"/client.crt"));
+    vpn_params->setStatus("ca_md5",myHelper::GetFileMD5(current_path+"/ca.crt"));
+    vpn_params->setStatus("config_md5",vpn_params->config_md5);
+
+
+    /**********************************************************/
+    // 上传验证签名证书，下载配置信息及策略
+    down->err_string.clear();
+    //force to remember thumb;
+
+    if(!per_connect(1))
+    {
+        return false;
+    }
+    else
+    {
+        on_pushButton_Login_clicked();
+        return true;
+    }
+}
+
+void MainWindow::cmd_exit()
+{
+     quitfrom_tray();
+}
+
+void MainWindow::cmd_start(){
+    StopVpn();
+    on_pushButton_Login_clicked();
+}
+
+void MainWindow::cmd_stop(){
+    on_pushButton_disconnection_clicked();
+    on_pushButton_back_clicked();
+}
+
+QString MainWindow::cmd_satus()
+{
+    QString rtStr="";
+    if(vpn_params->current_status == VPN_DISCONNECT ||
+            vpn_params->current_status == VPN_CONNECTING ||
+            vpn_params->current_status == VPN_RECONNECTING )
+    {
+        rtStr+="VPN_DISCONNECT";
+    }
+    else if(vpn_params->current_status == VPN_CONNECTED)
+    {
+        rtStr+="VPN_CONNECTED";
+        rtStr+=":";
+        rtStr+="IP_MASK=";
+        rtStr+=vpn_params->Status_map["IP_Mask"];
+        rtStr+=",";
+        rtStr+="IP=";
+        rtStr+=vpn_params->Status_map["IP"];
+    }
+
+    return rtStr;
+
+}
+
+#endif /*END MANAGMENT*/
 
 //记住证书
 void MainWindow::on_checkBox_thumb_clicked()

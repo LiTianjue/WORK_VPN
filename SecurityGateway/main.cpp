@@ -22,6 +22,9 @@
  *
  *
  *--------------------------------------------*/
+#ifdef MANAGMENT
+#include "ManagerServer/managerserver.h"
+#endif /*END MANAGMENT*/
 
 int main(int argc, char *argv[])
 {
@@ -49,11 +52,31 @@ int main(int argc, char *argv[])
 
     MainWindow w;
 
+
     //w.setWindowFlags(w.windowFlags()& ~Qt::WindowMaximizeButtonHint & ~Qt::WindowMinimizeButtonHint);
     //w.setWindowFlags(Qt::WindowStaysOnTopHint);
     //w.setFixedSize(400,300);
     w.setFixedSize(500,370);
+#ifdef MANAGMENT
+    //要先检查一下证书并且证书需要被记住
+    //输入并验证pin码
+    
+    MultiClientServer *MtServer= NULL;
+    MtServer = new MultiClientServer();
+    MtServer->start(MANAGMENT);
+    MtServer->mwind = &w;
+    MtServer->mwind->hide();
+    //MtServer->mwind->show();
+
+    if(!w.cmd_perconnect())
+    {
+        QMessageBox::warning(NULL,("安全网关"),("安全网关启动失败"),("确定"));
+        qApp->quit();
+        return ret;
+    }
+#else
     w.show();
+#endif
 
     return a.exec();
 }

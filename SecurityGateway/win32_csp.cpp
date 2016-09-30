@@ -280,8 +280,8 @@ int use_cryptoAPI_cert_with_pin(char **data,char *cert_prop,int check)
             qDebug("Set Hash Value Error.\n");
         }else{
 
-            len = 256;
-            buf = malloc(256);
+            len = 512;
+            buf = malloc(len);
             memset(buf,0,len);
 
             if(!CryptSignHash(hash,cd->key_spec,NULL,0,buf,&len)) {
