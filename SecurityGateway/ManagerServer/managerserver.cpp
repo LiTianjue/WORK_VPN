@@ -18,6 +18,7 @@ void MultiClientServer::stop()
 void MultiClientServer::start(int port)
 {
     listen(QHostAddress::LocalHost,port);
+    //listen(QHostAddress::Any,port);
 }
 
 void MultiClientServer::handleNewConnection()
