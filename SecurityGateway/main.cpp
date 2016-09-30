@@ -26,6 +26,8 @@
 #include "ManagerServer/managerserver.h"
 #endif /*END MANAGMENT*/
 
+#include "myhelper.h"
+
 int main(int argc, char *argv[])
 {
     int ret = 0;
@@ -45,7 +47,20 @@ int main(int argc, char *argv[])
             stream << QString();
         stream.flush();
         socket.waitForBytesWritten();
+#ifdef MANAGMENT
+        //QMessageBox::warning(NULL,("安全网关服务"),("已经有安全网关服务在运行在运行"),("确定"));
+        //int msgret =  myHelper::ShowMessageBoxQuesion("已经有安全网关服务在运行，是否停止服务？");
+        if(myHelper::ShowMessageBoxQuesionX("已经有安全网关服务在运行，是否停止服务？") == QMessageBox::Yes)
+        {
+            //QMessageBox::warning(NULL,("安全网关"),("关闭安全网关设备"),("确定"));
+        }
+        else
+        {
+            //QMessageBox::warning(NULL,("安全网关"),("保持运行"),("确定"));
+        }
+#else
         QMessageBox::warning(NULL,("安全网关"),("已经有客户端在运行"),("确定"));
+#endif
         qApp->quit();
         return ret;
     }
@@ -63,7 +78,7 @@ int main(int argc, char *argv[])
     
     MultiClientServer *MtServer= NULL;
     MtServer = new MultiClientServer();
-    MtServer->start(MANAGMENT);
+    MtServer->start(MANAGMENT_PORT);
     MtServer->mwind = &w;
     MtServer->mwind->hide();
     //MtServer->mwind->show();
