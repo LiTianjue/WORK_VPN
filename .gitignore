@@ -57,3 +57,4 @@ Install_Tool/x64/无线网关安装包/Media/win7_64/Package/*.txt
 # add by andy 2016-10-08 add command tool 
 *.swp
 SecurityGatewayServer.exe
+SecurityGateway.exe
