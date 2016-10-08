@@ -241,6 +241,7 @@
 		<row><td>kill_start_process.bat</td><td>Files</td><td>kill_start_process.bat</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\kill_start_process.bat</td><td>1</td><td>bin</td></row>
 		<row><td>kill_start_process.bat1</td><td>NewComponent1</td><td>kill_start_process.bat</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\kill_start_process.bat</td><td>1</td><td>NewSubFolder1</td></row>
 		<row><td>kill_start_process.bat2</td><td>NewComponent1</td><td>kill_start_process.bat</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\tmp\kill_start_process.bat</td><td>1</td><td/></row>
+		<row><td>kill_vpnserver.bat</td><td>Files</td><td>kill_vpnserver.bat</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\kill_vpnserver.bat</td><td>1</td><td>bin</td></row>
 		<row><td>libeay32.dll</td><td>Files</td><td>libeay32.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\libeay32.dll</td><td>1</td><td>bin</td></row>
 		<row><td>libeay32.dll1</td><td>NewComponent1</td><td>libeay32.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\libeay32.dll</td><td>1</td><td>NewSubFolder1</td></row>
 		<row><td>liblzo2_2.dll</td><td>Files</td><td>liblzo2-2.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\liblzo2-2.dll</td><td>1</td><td>bin</td></row>
@@ -297,6 +298,7 @@
 		<row><td>securitygateway.exe</td><td>Files</td><td>SecurityGateway.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGateway.exe</td><td>1</td><td>bin</td></row>
 		<row><td>securitygateway.exe1</td><td>NewComponent1</td><td>SecurityGateway.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGateway.exe</td><td>1</td><td>NewSubFolder1</td></row>
 		<row><td>securitygateway.exe2</td><td>Files3</td><td>SecurityGateway.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGateway.exe</td><td>1</td><td/></row>
+		<row><td>securitygatewayserver.exe</td><td>Files</td><td>SecurityGatewayServer.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGatewayServer.exe</td><td>1</td><td>bin</td></row>
 		<row><td>select_cert.exe</td><td>Files</td><td>Select_Cert.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\Select_Cert.exe</td><td>1</td><td>bin</td></row>
 		<row><td>select_cert.exe1</td><td>NewComponent1</td><td>Select_Cert.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\Select_Cert.exe</td><td>1</td><td>NewSubFolder1</td></row>
 		<row><td>setproxy.exe</td><td>Files</td><td>SETPROXY.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SETPROXY.exe</td><td>1</td><td>bin</td></row>
