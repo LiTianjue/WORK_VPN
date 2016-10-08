@@ -104,7 +104,7 @@ void MultiClientServer::HandleMsg(QByteArray msg, QTcpSocket *client)
     else if(msg.contains("VPN_EXIT"))
     {
         qDebug() << "HANDLE VPN EXIT";
-        mwind->cmd_exit();
+        rtMsg+="VPN_OK";
     }
     else
     {
@@ -121,6 +121,11 @@ void MultiClientServer::HandleMsg(QByteArray msg, QTcpSocket *client)
     client->waitForBytesWritten(1000);
     if(client->isWritable())
         client->write(rtMsg.toLatin1());
+
+   if(msg.contains("VPN_EXIT"))
+   {
+        mwind->cmd_exit();
+   }
 
 }
 

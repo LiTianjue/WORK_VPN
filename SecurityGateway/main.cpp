@@ -53,6 +53,16 @@ int main(int argc, char *argv[])
         if(myHelper::ShowMessageBoxQuesionX("已经有安全网关服务在运行，是否停止服务？") == QMessageBox::Yes)
         {
             //QMessageBox::warning(NULL,("安全网关"),("关闭安全网关设备"),("确定"));
+            QSettings *reg = new QSettings("HKEY_CURRENT_USER\\SoftWare\\Microsoft\\Windows\\CurrentVersion\\Internet Settings",QSettings::NativeFormat);
+            reg->setValue("ProxyEnable",false);
+
+            QProcess *poc = new QProcess;
+            poc->execute("kill_vpnserver.bat");
+
+
+            delete poc;
+            delete reg;
+
         }
         else
         {
@@ -89,6 +99,7 @@ int main(int argc, char *argv[])
         qApp->quit();
         return ret;
     }
+    //QMessageBox::information(NULL,("安全网关"),("安全网关已启动，请稍后查看启动状态"),("确定"));
 #else
     w.show();
 #endif

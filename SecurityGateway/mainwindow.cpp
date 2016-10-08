@@ -1947,14 +1947,15 @@ bool MainWindow::cmd_perconnect()
     vpn_params->setStatus("IP_Mask","");
 
     //记住证书序列号？
+     /*
     ui->checkBox_thumb->setChecked(true);
-    Con_Ini->setValue("common/thumb","");
+    //Con_Ini->setValue("common/thumb","");
     Con_Ini->setValue("common/remember_thumb","yes");
     vpn_params->remember_thumb = true;
+    */
     if(vpn_params->remember_thumb)
-        //vpn_params->setStatus("thumb",vpn_params->thumb);
-        vpn_params->setStatus("thumb","");
-
+        vpn_params->setStatus("thumb",vpn_params->thumb);
+        //vpn_params->setStatus("thumb","");
 
     QString version = myHelper::RunCmd(vpn_params->exe + " --version");
     version =  version.split(" ")[1];
@@ -1981,6 +1982,7 @@ bool MainWindow::cmd_perconnect()
 
     if(!per_connect(1))
     {
+        Con_Ini->setValue("common/thumb","");
         return false;
     }
     else
