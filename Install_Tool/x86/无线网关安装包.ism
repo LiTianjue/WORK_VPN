@@ -303,7 +303,6 @@
 		<row><td>securitygateway.exe1</td><td>Files2</td><td>SecurityGateway.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGateway.exe</td><td>1</td><td/></row>
 		<row><td>securitygateway.ico</td><td>Files2</td><td>SecurityGateway.ico</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGateway.ico</td><td>1</td><td/></row>
 		<row><td>securitygateway.ico1</td><td>Files</td><td>SecurityGateway.ico</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGateway.ico</td><td>1</td><td>bin</td></row>
-		<row><td>securitygatewayserver.exe</td><td>Files</td><td>SecurityGatewayServer.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGatewayServer.exe</td><td>1</td><td>bin</td></row>
 		<row><td>select_cert.exe</td><td>Files</td><td>Select_Cert.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\Select_Cert.exe</td><td>1</td><td>bin</td></row>
 		<row><td>select_cert.exe1</td><td>Files2</td><td>Select_Cert.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\Select_Cert.exe</td><td>1</td><td/></row>
 		<row><td>setproxy.exe</td><td>Files</td><td>SETPROXY.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SETPROXY.exe</td><td>1</td><td>bin</td></row>
