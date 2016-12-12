@@ -101,7 +101,9 @@ int main(int argc, char *argv[])
     }
     //QMessageBox::information(NULL,("安全网关"),("安全网关已启动，请稍后查看启动状态"),("确定"));
 #else
+//    w.show_warrning();
     w.show();
+    w.show_warrning();
 #endif
 
     return a.exec();

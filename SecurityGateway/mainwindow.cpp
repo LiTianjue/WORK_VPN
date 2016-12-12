@@ -246,6 +246,12 @@ MainWindow::MainWindow(QWidget *parent) :
     vpn_params->log_file = vpn_params->work_path + "/debug.log";
     vpn_params->exe = vpn_params->work_path +"/openvpn.exe";
     vpn_params->tmp_dir = tmpdir.path();
+
+    //add an warrning page 2016-12-12
+     Qt::WindowFlags flags = Qt::Dialog;
+    warrning_form.setWindowFlags(flags);
+    warrning_form.setWindowModality(Qt::ApplicationModal);
+
 }
 
 
@@ -2047,4 +2053,10 @@ void MainWindow::on_checkBox_thumb_clicked()
         vpn_params->remember_thumb = false;
         Con_Ini->setValue("common/thumb","");
     }
+}
+//add an warrning page
+void MainWindow::show_warrning()
+{
+    //warrning_form.show();
+    warrning_form.showFullScreen();
 }

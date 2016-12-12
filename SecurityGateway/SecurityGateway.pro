@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     FaceInfoMan.c \
     public_def.cpp \
     simple_log.cpp \
-    handle_json.cpp
+    handle_json.cpp \
+    warnpage.cpp
 
 HEADERS  += mainwindow.h \
     tconfigfile.h \
@@ -38,9 +39,11 @@ HEADERS  += mainwindow.h \
     myhelper.h \
     mytcpclient.h \
     simple_log.h \
-    handle_json.h
+    handle_json.h \
+    warnpage.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    warnpage.ui
 
 RESOURCES += \
     image/resource.qrc

@@ -23,6 +23,8 @@
 #include "public_def.h"
 #include "simple_log.h"
 
+#include "warnpage.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -77,7 +79,11 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    //add an warrning form 2016-12-12
+    WarnPage warrning_form;
 
+public:
+    void show_warrning();
 private:
     //处理openvpn的连接状态的
     void WatchOpenVPNProcess();

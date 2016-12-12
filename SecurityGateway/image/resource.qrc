@@ -17,5 +17,6 @@
         <file>test1.jpg</file>
         <file>test2.jpg</file>
         <file>testt3.jpg</file>
+        <file>warrning.jpg</file>
     </qresource>
 </RCC>
