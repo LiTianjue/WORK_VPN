@@ -193,7 +193,7 @@ QString VpnParams::Translate_line(QString msg)
         int _p=  0 ; //逗号
         int end = msg.indexOf("dhcp-option DOMAIN");
         qDebug() << "msg:" << msg;
-
+#ifndef GMVPN
         if(end > 0)
         {
             do{
@@ -210,6 +210,24 @@ QString VpnParams::Translate_line(QString msg)
 
             //rtString = "可用网段及掩码："+ msg;
         }
+
+#else   /*GMVPN*/
+        if(1){
+             /* 2.3.11
+         PUSH: Received control message: 'PUSH_REPLY,route 1.1.1.0 255.255.255.0,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5'
+         */
+            do{
+                route = msg.indexOf("route",pos);
+                pos = route+5;
+                _p = msg.indexOf(",",pos);
+                if(route < 0 || pos < 0)
+                    break;
+                ip_mask = ip_mask + " "+msg.mid(pos,_p-pos)+"\n";
+            }while(route > 0);
+            rtString = "可用网段及掩码："+ip_mask;
+            Status_map["IP_Mask"] = ip_mask;
+        }
+#endif
        // qDebug() << "rtString" << rtString;
     }
     else if(msg.contains("Notified TAP-Win32 driver to set a DHCP IP"))
@@ -230,6 +248,30 @@ QString VpnParams::Translate_line(QString msg)
 
 
     }
+#ifdef GMVPN
+    else if(msg.contains(" Notified TAP-Windows driver to set a DHCP IP"))
+    {
+        //2.3.11
+        /*
+         Notified TAP-Windows driver to set a DHCP IP/netmask of 10.8.0.6/255.255.255.252 on interface
+        */
+        //获取虚拟ip
+        int start = 0;
+        start = msg.indexOf("IP/netmask of");
+        QString IP = msg.mid(start+13,16).simplified();
+        int end = 0;
+        if((end = IP.indexOf("/")) > 0 )
+            IP = IP.mid(0,end);
+        else if((end = IP.indexOf(" ")) > 0 )
+            IP = IP.mid(0,end);
+
+
+        Status_map["IP"] = IP;
+        rtString = "获取虚拟地址："+IP;
+
+
+    }
+#endif
     else if(msg.contains("process restarting"))
     {
         ChangeStatus(VPN_RECONNECTING);

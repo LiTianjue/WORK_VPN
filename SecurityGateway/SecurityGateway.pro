@@ -58,3 +58,4 @@ LIBS +=-L./lib -lws2_32
 
 # goto
 QMAKE_CXXFLAGS += -fpermissive
+QMAKE_CXXFLAGS += -DGMVPN

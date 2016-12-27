@@ -713,7 +713,10 @@ bool MainWindow::per_connect(int pwd)
     //[1] 选择读取证书
     /***********************************************/
     char *c_data = NULL;
+    int c_len = 0;
     QString prop;
+    QByteArray cert_base64;
+#ifndef GMVPN
     if(vpn_params->remember_thumb)
     {
         prop = vpn_params->getStatus("thumb");
@@ -732,7 +735,7 @@ bool MainWindow::per_connect(int pwd)
     qDebug()<<"选择证书："<<prop;
     //[2] 读取der编码的证书文件
    //int  c_len = use_cryptoAPI_cert(&c_data,prop.toStdString().c_str());
-   int  c_len = use_cryptoAPI_cert_with_pin(&c_data,prop.toStdString().c_str(),pwd);
+   c_len = use_cryptoAPI_cert_with_pin(&c_data,prop.toStdString().c_str(),pwd);
    if(c_len <= 0)
    {
        qDebug()<< "获取证书失败"+QString::number(c_len,10);
@@ -750,7 +753,13 @@ bool MainWindow::per_connect(int pwd)
    qDebug()<<"获取证书数据成功";
 
    //[3] 证书数据base64编码
-    QByteArray cert_base64 = QByteArray(c_data,c_len).toBase64();
+    cert_base64 = QByteArray(c_data,c_len).toBase64();
+#else
+    // 这里添加读国密证书的接口，获得CER编码的证书数据c_data,和证书长度c_len
+    QByteArray context = myHelper::ReadFile("client.crt");
+    cert_base64 = context.toBase64();
+
+#endif
 
     /*
         osType=x86
@@ -760,7 +769,6 @@ bool MainWindow::per_connect(int pwd)
         key_file_md5=
     */
     //base64中有加号，要处理一下
-
     QString verify_url = vpn_params->verify_url_perfix();
     //cert_base64 = "\"" + cert_base64 + "\"";
     QTextCodec * codec = QTextCodec::codecForName("UTF-8");
@@ -1391,6 +1399,8 @@ void MainWindow::on_pushButton_Login_clicked()
     //显示连接过程中的信息
 #ifdef MANAGMENT
     if(!per_connect(0))
+#elif GMVPN
+    if(!per_connect(0))
 #else
     if(!per_connect(1))
 #endif /*if MANAGMENT ,do not input pin again*/
@@ -1438,6 +1448,12 @@ void MainWindow::on_pushButton_Login_clicked()
             " --cert " + vpn_params->getStatus("crt") +
             " --key " + vpn_params->getStatus("key") +
             " --ca " + vpn_params->getStatus("ca");
+#ifdef GMVPN
+    vpn_params->cmd_line = vpn_params->cmd_line +
+            " --enc-key " + vpn_params->getStatus("key") +
+            " --extra-certs " + vpn_params->getStatus("crt") +
+            " --tls-version-max gm1.1";
+#endif
 
     //if httpproxy
     QString httpproxy = "";
