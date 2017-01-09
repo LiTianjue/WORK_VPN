@@ -264,13 +264,6 @@
            <string/>
           </property>
           <layout class="QGridLayout" name="gridLayout_5">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_2">
-             <property name="text">
-              <string>协议类型:</string>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="1">
             <widget class="QComboBox" name="ProtoBox">
              <item>
@@ -285,6 +278,15 @@
              </item>
             </widget>
            </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="comboBox_2">
+             <item>
+              <property name="text">
+               <string>数字证书认证</string>
+              </property>
+             </item>
+            </widget>
+           </item>
            <item row="1" column="0">
             <widget class="QLabel" name="label_3">
              <property name="text">
@@ -292,11 +294,30 @@
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QComboBox" name="comboBox_2">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>协议类型:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_24">
+             <property name="text">
+              <string>证书类型</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="comboBox_3">
              <item>
               <property name="text">
-               <string>数字证书认证</string>
+               <string>RSA</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>SM2</string>
               </property>
              </item>
             </widget>

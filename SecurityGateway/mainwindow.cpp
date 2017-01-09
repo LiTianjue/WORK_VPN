@@ -23,7 +23,7 @@
 #include "myhelper.h"
 #include "win32_csp.h"
 #include "handle_json.h"
-
+#include "gm_skf_sdk.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -343,6 +343,8 @@ void MainWindow::Conf_2_UI()
     ui->lineEdit_server_port->setText(Con_Ini->value("setup/server_port").toString());
     ui->lineEdit_strategy_port->setText(Con_Ini->value("setup/strategy_server_port").toString());
 
+    ui->comboBox_3->setCurrentText(Con_Ini->value("setup/cert_type").toString());
+
     //if((m_pConfigFile->m_strProto.toLower()).trimmed() == "tcp")
     if((Con_Ini->value("common/proto").toString().simplified() == "tcp"))
     {
@@ -401,6 +403,7 @@ void MainWindow::UI_2_Conf()
     //保存VPN配置
     QString ip = ui->lineEdit_server_ip->text();
     QString port = ui->lineEdit_server_port->text();
+    QString cert_type = ui->comboBox_3->currentText();
 #ifdef CHECK_OVPN
     if(m_pConfigFile)
     {
@@ -416,6 +419,7 @@ void MainWindow::UI_2_Conf()
     Con_Ini->setValue("setup/server_ip",ip);
     Con_Ini->setValue("setup/server_port",port);
     Con_Ini->setValue("setup/strategy_server_port",ui->lineEdit_strategy_port->text());
+    Con_Ini->setValue("setup/cert_type",cert_type);
     //是不是要同步一下才能写到文件？
 
     //ProxySetting() 另一个界面上处理
@@ -716,50 +720,94 @@ bool MainWindow::per_connect(int pwd)
     int c_len = 0;
     QString prop;
     QByteArray cert_base64;
-#ifndef GMVPN
-    if(vpn_params->remember_thumb)
-    {
-        prop = vpn_params->getStatus("thumb");
-        qDebug() << "使用记住的证书 ：" << prop;
-        if(prop.isEmpty())
+
+    if(vpn_params->is_rsa) {    //使用csp接口读取RSA证书
+        if(vpn_params->remember_thumb)
         {
-            prop = myHelper::RunCmd("Select_Cert.exe");
-            Con_Ini->setValue("common/thumb",prop);
+            prop = vpn_params->getStatus("thumb");
+            qDebug() << "使用记住的证书 ：" << prop;
+            if(prop.isEmpty())
+            {
+                prop = myHelper::RunCmd("Select_Cert.exe");
+                Con_Ini->setValue("common/thumb",prop);
+            }
         }
-    }
-    else
-    {
-        prop =myHelper::RunCmd("Select_Cert.exe");
-    }
-    /***********************************************/
-    qDebug()<<"选择证书："<<prop;
-    //[2] 读取der编码的证书文件
-   //int  c_len = use_cryptoAPI_cert(&c_data,prop.toStdString().c_str());
-   c_len = use_cryptoAPI_cert_with_pin(&c_data,prop.toStdString().c_str(),pwd);
-   if(c_len <= 0)
-   {
-       qDebug()<< "获取证书失败"+QString::number(c_len,10);
-       printMessage("获取用户信息失败 "+QString::number(c_len,10));
-       //down->err_string = "获取用户信息失败";
-       return false;
-   }
-   if(c_data == NULL)
-   {
-       qDebug()<< "获取证书数据失败";
-       printMessage("读取用户信息失败");
-       down->err_string = "获取用户信息数据失败";
-       return false;
-   }
-   qDebug()<<"获取证书数据成功";
+        else
+        {
+            prop =myHelper::RunCmd("Select_Cert.exe");
+        }
+        /***********************************************/
+        qDebug()<<"选择证书："<<prop;
+        //[2] 读取der编码的证书文件
+        //int  c_len = use_cryptoAPI_cert(&c_data,prop.toStdString().c_str());
+        c_len = use_cryptoAPI_cert_with_pin(&c_data,prop.toStdString().c_str(),pwd);
+        if(c_len <= 0)
+        {
+            qDebug()<< "获取证书失败"+QString::number(c_len,10);
+            printMessage("获取用户信息失败 "+QString::number(c_len,10));
+            //down->err_string = "获取用户信息失败";
+            return false;
+        }
+        if(c_data == NULL)
+        {
+            qDebug()<< "获取证书数据失败";
+            printMessage("读取用户信息失败");
+            down->err_string = "获取用户信息数据失败";
+            return false;
+        }
+        qDebug()<<"获取证书数据成功";
 
-   //[3] 证书数据base64编码
-    cert_base64 = QByteArray(c_data,c_len).toBase64();
-#else
-    // 这里添加读国密证书的接口，获得CER编码的证书数据c_data,和证书长度c_len
-    QByteArray context = myHelper::ReadFile("client.crt");
-    cert_base64 = context.toBase64();
+        //[3] 证书数据base64编码
+        cert_base64 = QByteArray(c_data,c_len).toBase64();
+    }
+    else {      //使用skf接口读取sm2证书
+        // 这里添加读国密证书的接口，获得CER编码的证书数据c_data,和证书长度c_len
+        //QByteArray context = myHelper::ReadFile("client.crt");
+        //cert_base64 = context.toBase64();
 
-#endif
+        GM_SKF_SDK skf_handler;
+        skf_handler.GmSetDll(NULL); //使用默认的接口
+        skf_handler.GmLoadDll();
+        skf_handler.GmConnectDevice();
+        skf_handler.GmOpenApplication();
+        skf_handler.GmOpenContainer("SM2Container");    //使用我们自定义的SM2Container
+        if(!skf_handler.GmExportCertificate(CERT_TYPE_ENC,NULL,&c_len))
+        {
+            printf("read Cert Len : %d \n",c_len);
+            c_data = (u8 *)malloc(c_len);
+            if(!skf_handler.GmExportCertificate(CERT_TYPE_ENC,c_data,&c_len))
+            {
+                printf("Read Cert Success\n");
+            }
+        }
+        if(c_len <= 0)
+        {
+            qDebug()<< "获取证书失败"+QString::number(c_len,10);
+            printMessage("获取用户信息失败 "+QString::number(c_len,10));
+            //down->err_string = "获取用户信息失败";
+            return false;
+        }
+        if(c_data == NULL)
+        {
+            qDebug()<< "获取证书数据失败";
+            printMessage("读取用户信息失败");
+            down->err_string = "获取用户信息数据失败";
+            return false;
+        }
+
+        if(1) {
+            FILE *fp = NULL;
+
+            fp = fopen("cert_out.der","wb");
+            fwrite(c_data,1,c_len,fp);
+            fclose(fp);
+            //free(c_data);
+        }
+
+
+        cert_base64 = QByteArray(c_data,c_len).toBase64();
+
+    }
 
     /*
         osType=x86
@@ -1375,6 +1423,17 @@ void MainWindow::on_pushButton_Login_clicked()
     if(vpn_params->remember_thumb)
         vpn_params->setStatus("thumb",vpn_params->thumb);
 
+    //获取证书类型
+    if(ui->comboBox_3->currentText() == "SM2") {
+        vpn_params->is_rsa = false;
+        printMessage("证书类型：" + QString("SM2"));
+        //vpn_params->exe = vpn_params->work_path +"/gm/openvpn.exe";
+    } else {
+        vpn_params->is_rsa = true;
+        printMessage("证书类型：" + QString("RSA"));
+        //vpn_params->exe = vpn_params->work_path +"/openvpn.exe";
+    }
+
     QString version = myHelper::RunCmd(vpn_params->exe + " --version");
     version =  version.split(" ")[1];
     vpn_params->exe_version = version;
@@ -1398,16 +1457,16 @@ void MainWindow::on_pushButton_Login_clicked()
     down->err_string.clear();
     //显示连接过程中的信息
 #ifdef MANAGMENT
-    if(!per_connect(0))
-#elif GMVPN
-    if(!per_connect(0))
+    if(!per_connect(0)) {
 #else
-    if(!per_connect(1))
+    if(vpn_params->is_rsa) {
+        if(!per_connect(1) )
 #endif /*if MANAGMENT ,do not input pin again*/
-    {
-        //qDebug()<<"配置安全参数失败:" << down->err_string;
-        //printMessage("配置安全参数失败："+down->err_string);
-        return;
+        {
+            //qDebug()<<"配置安全参数失败:" << down->err_string;
+            //printMessage("配置安全参数失败："+down->err_string);
+            return;
+        }
     }
 
     /************************************************************/
@@ -1448,12 +1507,14 @@ void MainWindow::on_pushButton_Login_clicked()
             " --cert " + vpn_params->getStatus("crt") +
             " --key " + vpn_params->getStatus("key") +
             " --ca " + vpn_params->getStatus("ca");
-#ifdef GMVPN
-    vpn_params->cmd_line = vpn_params->cmd_line +
-            " --enc-key " + vpn_params->getStatus("key") +
-            " --extra-certs " + vpn_params->getStatus("crt") +
-            " --tls-version-max gm1.1";
-#endif
+
+    if(!vpn_params->is_rsa) {   //如果是sm2证书要添加额外的选项
+        vpn_params->cmd_line = vpn_params->cmd_line +
+                " --enc-key " + vpn_params->getStatus("key") +
+                " --extra-certs " + vpn_params->getStatus("crt") +
+                " --tls-version-max gm1.1";
+    }
+
 
     //if httpproxy
     QString httpproxy = "";
