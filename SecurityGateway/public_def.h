@@ -57,6 +57,7 @@ public:
 
     bool auto_connect;
     bool remember_thumb;
+    bool is_rsa;
     QString thumb;
 
     QString last_line;

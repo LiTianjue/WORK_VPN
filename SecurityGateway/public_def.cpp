@@ -22,6 +22,7 @@ VpnParams::VpnParams(QObject *parent)
 
     auto_connect    = false;
     remember_thumb   = false;
+    is_rsa = true;      //默认是使用rsa证书的
     thumb.clear();
 
     failed_psw          = 0;
