@@ -58,3 +58,4 @@ Install_Tool/x64/无线网关安装包/Media/win7_64/Package/*.txt
 *.swp
 SecurityGatewayServer.exe
 SecurityGateway.exe
+!SecurityGateway/lib/*.a

@@ -38,7 +38,12 @@ HEADERS  += mainwindow.h \
     myhelper.h \
     mytcpclient.h \
     simple_log.h \
-    handle_json.h
+    handle_json.h \
+    gm_skf_sdk.h \
+    include/base_type.h \
+    include/SKF.h \
+    include/skf_type.h \
+    include/xchar.h
 
 FORMS    += mainwindow.ui
 
@@ -56,6 +61,11 @@ LIBS +=-L./lib -lws2_32
 #LIBS += -LC:/OpenSSL-Win32/lib/MinGw -leay32 -lssleay32
 #INCLUDEPATH += C:/OpenSSL-Win32/include
 
+LIBS += -L$$PWD/lib/ -lgm_skf_sdk
+
+
 # goto
 QMAKE_CXXFLAGS += -fpermissive
 QMAKE_CXXFLAGS += -DGMVPN
+
+
