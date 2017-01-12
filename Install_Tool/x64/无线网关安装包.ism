@@ -298,12 +298,12 @@
 		<row><td>securitygateway.exe</td><td>Files</td><td>SecurityGateway.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGateway.exe</td><td>1</td><td>bin</td></row>
 		<row><td>securitygateway.exe1</td><td>NewComponent1</td><td>SecurityGateway.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGateway.exe</td><td>1</td><td>NewSubFolder1</td></row>
 		<row><td>securitygateway.exe2</td><td>Files3</td><td>SecurityGateway.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGateway.exe</td><td>1</td><td/></row>
-		<row><td>securitygatewayserver.exe</td><td>Files</td><td>SecurityGatewayServer.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SecurityGatewayServer.exe</td><td>1</td><td>bin</td></row>
 		<row><td>select_cert.exe</td><td>Files</td><td>Select_Cert.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\Select_Cert.exe</td><td>1</td><td>bin</td></row>
 		<row><td>select_cert.exe1</td><td>NewComponent1</td><td>Select_Cert.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\Select_Cert.exe</td><td>1</td><td>NewSubFolder1</td></row>
 		<row><td>setproxy.exe</td><td>Files</td><td>SETPROXY.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SETPROXY.exe</td><td>1</td><td>bin</td></row>
 		<row><td>setproxy.exe1</td><td>NewComponent1</td><td>SETPROXY.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SETPROXY.exe</td><td>1</td><td>NewSubFolder1</td></row>
 		<row><td>setproxy.exe2</td><td>NewComponent1</td><td>SETPROXY.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\tmp\SETPROXY.exe</td><td>1</td><td/></row>
+		<row><td>skf_sd.dll</td><td>Files</td><td>SKF_sd.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\SKF_sd.dll</td><td>1</td><td>bin</td></row>
 		<row><td>ssl_vpn.exe</td><td>Files</td><td>ssl_vpn.exe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\ssl_vpn.exe</td><td>1</td><td>bin</td></row>
 		<row><td>ssleay32.dll</td><td>Files</td><td>ssleay32.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\ssleay32.dll</td><td>1</td><td>bin</td></row>
 		<row><td>ssleay32.dll1</td><td>NewComponent1</td><td>ssleay32.dll</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;ISProjectFolder&gt;\file\openvpn\bin\ssleay32.dll</td><td>1</td><td>NewSubFolder1</td></row>
