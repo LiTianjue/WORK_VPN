@@ -23,7 +23,7 @@
 #include "myhelper.h"
 #include "win32_csp.h"
 #include "handle_json.h"
-#include "gm_skf_sdk.h"
+#include "skf/cx_skf_sdk.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -765,21 +765,67 @@ bool MainWindow::per_connect(int pwd)
         //QByteArray context = myHelper::ReadFile("client.crt");
         //cert_base64 = context.toBase64();
 
-        GM_SKF_SDK skf_handler;
-        skf_handler.GmSetDll(NULL); //使用默认的接口
-        skf_handler.GmLoadDll();
-        skf_handler.GmConnectDevice();
-        skf_handler.GmOpenApplication();
-        skf_handler.GmOpenContainer("SM2Container");    //使用我们自定义的SM2Container
-        if(!skf_handler.GmExportCertificate(CERT_TYPE_ENC,NULL,&c_len))
+        unsigned int sdk_ret = 0;
+        QString dllName = Con_Ini->value("setup/dll_name").toString();
+        if(dllName.size() == 0) {
+            CX_SKF_SDK_SetDll(NULL); //使用默认的接口
+        } else {
+            CX_SKF_SDK_SetDll(dllName.toLatin1().data());
+        }
+        sdk_ret = CX_SKF_SDK_LoadDll();
+        if(sdk_ret) {
+            printMessage("载入加密卡失败");
+            return false;
+        }
+        if(CX_SKF_SDK_ConnectDev()) {
+            printMessage("连接加密设备失败");
+            return false;
+        }
+        if(CX_SKF_SDK_OpenApplication()) {
+            printMessage("打开加密应用失败");
+            return false;
+        }
+
+        QString ctName = Con_Ini->value("setup/ctn_name").toString();
+        if(ctName.size() == 0) {
+            sdk_ret = CX_SKF_SDK_OpenContainer("KingTrustVPN");
+        }
+        else {
+            sdk_ret = CX_SKF_SDK_OpenContainer(ctName.toLatin1().data());
+        }
+        if(sdk_ret) {
+            printMessage("打开加密容器失败");
+            return false;
+        }
+
+        QString skf_psw = myHelper::PasswdDlg("设备认证","请输入用户pin码：");
+        if(skf_psw.size()==0) {
+            printMessage("请输入密码");
+            return false;
+        }
+
+        unsigned  int retry = 0;
+        sdk_ret = CX_SKF_SDK_VerifyPin(skf_psw.toLatin1().data(),&retry);
+        if(sdk_ret) {
+            myHelper::ShowMessageBoxErrorX("用户密码错误");
+            printMessage("输入密码错误，剩余重试次数:"+QString::number(retry,10));
+            return false;
+        }
+
+        if(!CX_SKF_SDK_ExportCertificate(CERT_TYPE_ENC,NULL,&c_len))
         {
             printf("read Cert Len : %d \n",c_len);
-            c_data = (u8 *)malloc(c_len);
-            if(!skf_handler.GmExportCertificate(CERT_TYPE_ENC,c_data,&c_len))
+            c_data = (char *)malloc(c_len);
+            if(!CX_SKF_SDK_ExportCertificate(CERT_TYPE_ENC,c_data,&c_len))
             {
                 printf("Read Cert Success\n");
             }
+        }else {
+            printMessage("读取加密卡信息失败");
+            return false;
+
         }
+
         if(c_len <= 0)
         {
             qDebug()<< "获取证书失败"+QString::number(c_len,10);
@@ -795,7 +841,7 @@ bool MainWindow::per_connect(int pwd)
             return false;
         }
 
-        if(1) {
+        if(0) {
             FILE *fp = NULL;
 
             fp = fopen("cert_out.der","wb");
@@ -1457,16 +1503,14 @@ void MainWindow::on_pushButton_Login_clicked()
     down->err_string.clear();
     //显示连接过程中的信息
 #ifdef MANAGMENT
-    if(!per_connect(0)) {
+    if(!per_connect(0))
 #else
-    if(vpn_params->is_rsa) {
-        if(!per_connect(1) )
+    if(!per_connect(1))
 #endif /*if MANAGMENT ,do not input pin again*/
-        {
-            //qDebug()<<"配置安全参数失败:" << down->err_string;
-            //printMessage("配置安全参数失败："+down->err_string);
+    {
+        //qDebug()<<"配置安全参数失败:" << down->err_string;
+        //printMessage("配置安全参数失败："+down->err_string);
             return;
-        }
     }
 
     /************************************************************/

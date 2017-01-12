@@ -60,3 +60,4 @@ SecurityGatewayServer.exe
 SecurityGateway.exe
 !SecurityGateway/lib/*.a
 !GM_Add/*
+!SecurityGateway/skf/*.a
