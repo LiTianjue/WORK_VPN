@@ -121,7 +121,7 @@ private:
  //add by andy 2015-12-02 增加证书验证和配置下载
      CDOWN_CONF *down;
      bool per_connect(int pwd);
-  //add by andy 20115-12-03 增加一个类保装参数
+  //add by andy 2015-12-03 增加一个类保装参数
      VpnParams *vpn_params;
      //void set_vpn_params();
 
@@ -142,6 +142,7 @@ private :
     void        cmd_start();            //启动拨号
     void        cmd_stop();             //断开拨号
     QString     cmd_satus();            //获取拨号状态
+    QString     cmd_get_cert();         //获取拨号用的公钥证书
 #endif  /*END MANAGMENT*/
 };
 

@@ -106,6 +106,11 @@ void MultiClientServer::HandleMsg(QByteArray msg, QTcpSocket *client)
         qDebug() << "HANDLE VPN EXIT";
         rtMsg+="VPN_OK";
     }
+    else if(msg.contains("VPN_CERT"))
+    {
+        qDebug() << "HANDLE VPN CERT";
+        rtMsg+=mwind->cmd_get_cert();
+    }
     else
     {
         qDebug() << "HANDLE Unknow Cmd";

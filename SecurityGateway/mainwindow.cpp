@@ -2031,6 +2031,55 @@ QString MainWindow::cmd_satus()
 
 }
 
+QString MainWindow::cmd_get_cert()
+{
+    QString RTString = "ERROR";
+      //[1] 选择读取证书
+    /***********************************************/
+    char *c_data = NULL;
+    QString prop;
+    if(vpn_params->remember_thumb)
+    {
+        prop = vpn_params->getStatus("thumb");
+        qDebug() << "使用记住的证书 ：" << prop;
+        if(prop.isEmpty())
+        {
+            prop = myHelper::RunCmd("Select_Cert.exe");
+            Con_Ini->setValue("common/thumb",prop);
+        }
+    }
+    else
+    {
+        prop =myHelper::RunCmd("Select_Cert.exe");
+    }
+    /***********************************************/
+    qDebug()<<"选择证书："<<prop;
+    //[2] 读取der编码的证书文件
+   //int  c_len = use_cryptoAPI_cert(&c_data,prop.toStdString().c_str());
+   int  c_len = use_cryptoAPI_cert_with_pin(&c_data,prop.toStdString().c_str(),1);
+   if(c_len <= 0)
+   {
+       qDebug()<< "获取证书失败"+QString::number(c_len,10);
+       printMessage("获取用户信息失败 "+QString::number(c_len,10));
+       //down->err_string = "获取用户信息失败";
+       return RTString;
+   }
+   if(c_data == NULL)
+   {
+       qDebug()<< "获取证书数据失败";
+       printMessage("读取用户信息失败");
+       down->err_string = "获取用户信息数据失败";
+       return RTString;
+   }
+   qDebug()<<"获取证书数据成功";
+
+   //[3] 证书数据base64编码
+    QByteArray cert_base64 = QByteArray(c_data,c_len).toBase64();
+
+    RTString = cert_base64;
+    return RTString;
+}
+
 #endif /*END MANAGMENT*/
 
 //记住证书
